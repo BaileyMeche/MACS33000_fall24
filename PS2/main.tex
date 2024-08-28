@@ -1,0 +1,310 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+%bailey meche
+\begin{document}
+%bailey meche
+	\begin{center}
+		Assignment 2: Sequences, Limits, Derivatives, and Critical Points\\
+        MACSS 33000 1 \\
+		Due Tuesday, August 27 \\
+        %Bailey Meche
+	\end{center}
+ 
+\section{Simplify Logarithms}
+Express each of the following as a single logarithm 
+\begin{enumerate}
+    \item $\log(x) + \log(y) - \log(z)$
+    \item $2\log(x) + 1$
+    \item $\log(x)-2$
+\end{enumerate}
+Solution:
+\begin{enumerate}
+    \item $\log(x) + \log(y) - \log(z)  = \log\left(\frac{xy}{z}\right)$
+    \item $2\log(x) + 1 = \log(x^2) + 1 = \log(x^2) + \log(e) = \log(ex^2)$
+    \item $\log(x)-2 = \log(x) - 2\log(e) = \log(x) - \log(e^2) = \log\left( \frac{x}{e^2}\right)$
+\end{enumerate}
+
+\section{Sequences}
+Write down the first three terms of each of the following sequences. In each case, state whether the sequence is an arithmetic progression, a geometric progression, or neither. 
+\begin{enumerate}
+    \item $u_n = 5 + 3n$
+    \item $u_n = 3^n$
+    \item $u_n = n3^n$
+\end{enumerate}
+Solution
+
+\begin{enumerate}
+    \item Arithmetic sequence: $u_n = 5 + 3n \to \{n \in \mathbb{N}_{\leq 3}: 8,11,14,...\}$
+    \item Geometric sequence: $u_n = 3^n \to \{n \in \mathbb{N}_{\leq 3}: 3,9,27,...\}$
+    \item Neither: $u_n = n3^n \to \{n \in \mathbb{N}_{\leq 3}: 3,18, 81,...\}$
+\end{enumerate}
+
+\section{Find the limit}
+In each of the following cases, state whether the sequence $\{u_n\}$ tends to a limit, and find the limit if it exists:
+\begin{enumerate}
+    \item $u_n = 1+ \frac{1}{2}n$
+    \item $u_n = \left(\frac{1}{2}\right)^n$
+    \item $\lim\limits_{x \to -4} \frac{x^2 + 5x + 4}{x^2 + 3x -4}$
+\end{enumerate}
+Solution
+
+\begin{enumerate}
+    \item $u_n = 1+ \frac{1}{2}n$
+    \begin{align*}
+        \lim\limits_{n \to \infty} u_n &=  \lim\limits_{n \to \infty}(1 + \frac{1}{2}n) 
+        \\ &=  \lim\limits_{n \to \infty} 1 +  \frac{1}{2}\lim\limits_{n \to \infty} n \to \infty 
+        \\ & \text{Limit does not exist.}
+    \end{align*}
+    \item $u_n = \left(\frac{1}{2}\right)^n$
+    \begin{align*}
+         \lim\limits_{n \to \infty} u_n &=  \lim\limits_{n \to \infty} \left(\frac{1}{2}\right)^n 
+         \\ &= \lim\limits_{n \to \infty} \frac{1}{2^n} 
+         \\ &=0
+    \end{align*}
+    \item $\lim\limits_{x \to -4} \frac{x^2 + 5x + 4}{x^2 + 3x -4}$
+    \begin{align*}
+        \lim\limits_{x \to -4} \frac{x^2 + 5x + 4}{x^2 + 3x -4}   &= \lim\limits_{x \to -4} \frac{(x+4)(x+1)}{(x+4)(x-1)}
+        \\ &= \lim\limits_{x \to -4} \frac{x+1}{x-1}
+        \\ &= \frac{3}{5}
+    \end{align*}
+\end{enumerate}
+
+\section{Determine convergence or divergence}
+Determine whether each of the following sequences converges or diverges. If it converges, find the limit
+\begin{enumerate}
+    \item $a_n = \frac{3+5n^2}{n+n^2}$
+    \item $a_n = \frac{(-1)^{n-1}n}{n^2+1}$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $a_n = \frac{3+5n}{n+n^2}$
+    \begin{align*}
+        \lim\limits_{n \to \infty} a_n &= \lim\limits_{n \to \infty} \frac{3+5n^2}{n+n^2} \\ &= \lim\limits_{n \to \infty} \frac{3}{n(1+n)} + 5\lim\limits_{n \to \infty} \frac{n}{1+n}
+        \\ &= 0 + 5(1)
+        \\ &= 5
+        \\ & \text{This sequence converges to 5.}
+    \end{align*}
+    \item $a_n = \frac{(-1)^{n-1}n}{n^2+1}$ converges to 0. This is seen by removing the alternating term and observing the dominating terms of the  function $ \frac{n}{n^2+1}$ which converges to 0 regardless of the alternating sign term.
+\end{enumerate}
+
+\section{Find more limits}
+Given that 
+\[ \lim\limits_{x \to a} f(x) =-3, \lim\limits_{x \to a} g(x) =0, \lim\limits_{x\to a} h(x) = 8\]
+find the limits that exist. If the limit doesn’t exist, explain why.
+\begin{enumerate}
+    \item $\lim\limits_{x \to a} [f(x) + h(x)]$
+    \item $\lim\limits_{x \to a} \frac{f(x)}{g(x)}$
+    \item $\lim\limits_{x \to a} \frac{2f(x)}{h(x) - f(x)}$
+\end{enumerate}
+Solution
+
+\begin{enumerate}
+    \item $\lim\limits_{x \to a} [f(x) + h(x)] = \lim\limits_{x \to a} f(x) + \lim\limits_{x \to a} h(x) = -3 + 8=5$
+    \item $\lim\limits_{x \to a} \frac{f(x)}{g(x)}$ does not exist. Limit algebra only allows that $\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to a} f(x)}{\lim\limits_{x \to a} g(x)}$ if $g \neq 0 \forall x \in \mathbb{R}$, but since $\lim\limits_{x \to a} g(x) \neq 0$ the limit does not exist.
+    \item $\lim\limits_{x \to a} \frac{2f(x)}{h(x) - f(x)} =\frac{2 \lim\limits_{x \to a}  f(x)}{ \lim\limits_{x \to a} h(x) - \lim\limits_{x \to a}  f(x)} = \frac{2(-3)}{(8)- (-3)} = -\frac{6}{11}$
+\end{enumerate}
+
+\section{Check for discontinuities}
+Which of the following functions are continuous? If not, where are the discontinuities?
+
+\begin{enumerate}
+    \item $f(x) = \frac{9x^3 -x}{(x-1)(x+1)}$
+    \item $f(x) = e^{-x^2}$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $f(x) = \frac{9x^3 -x}{(x-1)(x+1)} $ is discontinuous at its asymptotes $x=1,-1$. 
+    \item $f(x) = e^{-x^2}$ is continuous for all $x \in \mathbb{R}$.
+\end{enumerate}
+
+\section{Find finite limits }
+Find the following finite limits
+\begin{enumerate}
+    \item $\lim\limits_{x \to 1} \left( \frac{x^4-1}{x-1}\right)$
+    \item $\lim\limits_{x \to -4} \left( \frac{x^2 +5x + 4}{x^2 + 3x - 4} \right)$
+\end{enumerate}
+Solution
+
+\begin{enumerate}
+    \item $\lim\limits_{x \to 1} \left( \frac{x^4-1}{x-1}\right) = \lim\limits_{x \to 1} \left( \frac{(x^2+1)(x-1)(x+1)}{x-1}\right)  = \lim\limits_{x \to 1}  (x^2+1)(x+1) =4 $
+    \item $\lim\limits_{x \to -4} \left( \frac{x^2 +5x + 4}{x^2 + 3x - 4} \right) = \lim\limits_{x \to -4} \left( \frac{(x+4)(x+1)}{(x+4)(x-1)} \right)=   \lim\limits_{x \to -4} \left( \frac{x+1}{x-1} \right) = \frac{3}{5}$
+\end{enumerate}
+
+\section{Find infinite limits}
+Find the following infinite limits
+\begin{enumerate}
+    \item $\lim\limits_{x \to \infty} \left(\frac{9x^2}{x^2+3}\right)$
+    \item $\lim\limits_{x \to \infty} \left(\frac{3^x}{x^3}\right)$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $\lim\limits_{x \to \infty} \left(\frac{9x^2}{x^2+3}\right)=9\lim\limits_{x \to \infty} \left(\frac{x^2}{x^2+3}\right) = 9(1)=9$
+    \item $\lim\limits_{x \to \infty} \left(\frac{3^x}{x^3}\right) \to \infty $
+\end{enumerate}
+
+\section{Assessing continuity and differentiable }
+For each of the following functions, describe whether it is continuous and/or differentiable at
+the point of transition of its two formulas
+\begin{enumerate}
+    \item $f(x) = \begin{cases}
+        x^2 & x \geq 0
+        \\ -x^2 & x<0
+    \end{cases}
+    $
+    \item $f(x) = \begin{cases}
+        x^3 & x \leq 1
+        \\ x & x>1
+    \end{cases}$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $f(x)$ is continuous and differentiable for all $x\in \mathbb{R}$. 
+    \item $f(x)$ is continuous at all points including the critical point. To test for differentiability, we test the continuity of the derivative at the critical point: \[ f'(x) = \begin{cases}
+        3x^2 & x \leq 1
+        \\ 1 & x>1
+    \end{cases}\]
+    Since this function $f'(x)$ is not continuous at $x=1$, this function is not differentiable for all $x\in \mathbb{R}.$
+\end{enumerate}
+
+\section{Possible derivative}
+A friend shows you this graph of a function $f(x)$. Which of the following could be a graph of $f'(x)$? For each graph, explain why or why not it
+might be the derivative of $f(x)$.
+
+Solution:
+\begin{enumerate}
+    \item This could not be a possible graph of $f'(x)$. This is because this graph is constant and negative while the graph of $f(x)$ is positive and increasing at some rate, indicating that its derivative must be at least positive. 
+    \item This could not be a possible graph of $f'(x)$ since it is positive and constant. The function $f(x)$ is increasing at an increasing rate, so $f'(x)$ must be positive and increasing.
+    \item This could be a possible graph of $f'(x)$ since it is positive and increasing. Since $f(x)$ is increasing at an increasing rate,  this is a likely graph of $f'(x)$.
+    \item This could not be a possible graph of $f'(x)$. This is because this graph is negative at some points of $x>0$, implying that $f(x)$ should decrease during this portion. Since it does not, this excludes D from a possible graph of $f'(x)$.
+\end{enumerate}
+What if the figure below was the graph of $f(x)$? Which of the graphs might potentially be the
+derivative of $f(x)$ then?
+
+Solution: The graph of $f'(x)$ for this new $f(x)$ is now graph B. This $f(x)$ is positive and increasing at a constant rate instead of an increasing rate. Graph B is positive and constant, matching our expectations. 
+
+\section{Calculate derivatives}
+Differentiate the following functions
+\begin{enumerate}
+    \item $f(x) = 4x^3 + 2x^2 + 5x + 11$
+    \item $y=\sqrt{30}$
+    \item $h(t) = \log(9t+1)$
+    \item $f(x) = \log(x^2e^x)$
+    \item $h(y) = \left(\frac{1}{y^2} - \frac{3}{y^4}\right)(y+5y^3)$
+    \item $h(x) = \frac{x}{\log(x)}$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $f'(x) = 12x^2 + 4x + 5$
+    \item $y=0$
+    \item $h(t) = \frac{9}{9t+1}$
+    \item $f(x) = \frac{(x^2e^x)'}{x^2e^x} = \frac{x + 2}{x}$
+    \item $h(y) = \left(\frac{1}{y^2} - \frac{3}{y^4}\right)(1+15y^2)  +\left(-\frac{2}{y^3} + \frac{12}{y^5}\right) (y+5y^3)$
+    \item $h(x) = \frac{1}{\log(x)} - \frac{1}{\log^2(x)}$
+\end{enumerate}
+
+\section{Use the product and quotient rules}
+Differentiate the following function twice – once using the product rule, and once using the
+quotient rule
+\begin{align*}
+    f(x) &= \frac{x^2 -2x}{x^4 + 6}
+\end{align*}
+Solution
+\begin{align*}
+    f'(x) &= \frac{(x^4 + 6)(2x -2) - (x^2-2x)(4x^3)}{(x^4 + 6)^2}
+    \\ f'(x) &= (x^2 -2x)\left((x^4 + 6)^{-1}\right)' + (x^2 -2x)'(x^4 + 6)^{-1}
+    \\ &= (x^2 -2x)(-1)(x^4 + 6)^{-2}(4x^3) + (2x-2)(x^4 + 6)^{-1}
+    \\&= \frac{(x^4 + 6)(2x -2) - (x^2-2x)(4x^3)}{(x^4 + 6)^2}
+\end{align*}
+
+\section{Composite functions}
+For each of the following pairs of functions $g(x)$ and $h(z)$ write out the composite function
+$g(h(z))$ and $h(g(x))$. In each case, describe the domain of the composite function
+\begin{enumerate}
+    \item $g(x) = x^2 +4, h(z) = 5z-1$
+    \item $g(x) = x^3, h(z) = (z-1)(z+1)$ 
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item$g(x) = x^2 +4, h(z) = 5z-1$
+    \begin{enumerate}
+        \item $g(h(z)) = (5z-1)^2 +4$, $\mathbb{D}: z\in \mathbb{R}$
+        \item $h(g(x)) = 5(x^2+4)-1, \mathbb{D}:x\in \mathbb{R}$
+    \end{enumerate}
+    \item $g(x) = x^3, h(z) = (z-1)(z+1)$ 
+    \begin{enumerate}
+        \item $g(h(z)) = (z-1)^3(z+1)^3$, $ \mathbb{D}:z\in \mathbb{R} \textbackslash \{-1,1\}$
+        \item $h(g(x)) = (x^3-1)(x^3+1), \mathbb{D}: x\in \mathbb{R} \textbackslash \{-1,1\}$
+    \end{enumerate}
+\end{enumerate}
+
+\section{Chain rule}
+Use the chain rule to compute the derivative of the composite functions in the previous section
+from the derivatives of the two component functions. Then, compute each derivative directly
+using your expression for the composite function. Simplify and compare your answers
+\begin{enumerate}
+    \item $g(x) = x^2 +4, h(z) = 5z-1$
+    \item $g(x) = x^3, h(z) = (z-1)(z+1)$ 
+    \item $g(x) = 4x+2, h(z) = \frac{1}{4}(z-2)$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $g(x) = x^2 +4, h(z) = 5z-1$
+     \begin{enumerate}
+         \item Chain rule
+         \begin{enumerate}
+            \item $g(h(z))' = g'(h(z))h'(z) = 2(5z-1)(5)$
+            \item $h(g(x))' = h'(g(x))g'(x) = 5(2x)$
+        \end{enumerate}
+         \item Direct
+         \begin{enumerate}
+            \item $g(h(z))' = \frac{d}{dz}( (5z-1)^2 +4) = 2(5z-1)(5)$
+            \item $h(g(x))' = \frac{d}{dx} 5(x^2+4)-1 = 5(2x)$
+        \end{enumerate}
+     \end{enumerate}
+     
+    \item $g(x) = x^3, h(z) = (z-1)(z+1)$ 
+     \begin{enumerate}
+         \item Chain rule
+         \begin{enumerate}
+            \item $g(h(z))' = g'(h(z))h'(z) = 3(z-1)^2(z+1)^2(2z)$
+            \item $h(g(x))' = h'(g(x))g'(x) = 2(x^3)(3x^2)$
+        \end{enumerate}
+         \item Direct
+         \begin{enumerate}
+            \item $g(h(z))' = (z-1)^3(z+1)^3 =3(z-1)^2(z+1)^3 +(z-1)^3(3)(z+1)^2$
+            \item $h(g(x))' = (x^3-1)(x^3+1) = (3x^2)(x^3+1)+(x^3-1)(3x^2)$
+        \end{enumerate}
+     \end{enumerate}
+     
+    \item $g(x) = 4x+2, h(z) = \frac{1}{4}(z-2)$
+    \begin{enumerate}
+         \item Chain rule
+         \begin{enumerate}
+            \item $g(h(z))' = g'(h(z))h'(z) = 1$
+            \item $h(g(x))' = h'(g(x))g'(x) = 1$
+        \end{enumerate}
+         \item Direct
+         \begin{enumerate}
+            \item $g(h(z))' = \frac{d}{dz}(z) =1$
+            \item $h(g(x))' = \frac{d}{dx}(x)=1$
+        \end{enumerate}
+     \end{enumerate}
+\end{enumerate}
+\end{document}
