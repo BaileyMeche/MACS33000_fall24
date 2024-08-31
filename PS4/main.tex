@@ -1,0 +1,518 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+%bailey meche
+\begin{document}
+%bailey meche
+	\begin{center}
+		Assignment 4: Linear Algebra\\
+        MACSS 33000 1 \\
+		Due Tuesday, September 2 \\
+        %Bailey Meche
+	\end{center}
+ 
+\section{Basic matrix arithmetic}
+If
+\[ \mathbf{a} = \begin{bmatrix}
+    2 \\ 2
+\end{bmatrix} \text{ and }\mathbf{b} = \begin{bmatrix}
+    1 \\ 3
+\end{bmatrix} \]
+Find:
+\begin{enumerate}
+    \item $\mathbf{a}+\mathbf{b}$
+    \item $-4\mathbf{b}$
+    \item $3\mathbf{a} - 4\mathbf{b}$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $\mathbf{a}+\mathbf{b} = \begin{bmatrix}    3 \\ 5\end{bmatrix} $
+    \item $-4\mathbf{b} =  \begin{bmatrix}    -4 \\ -12 \end{bmatrix}$
+    \item $3\mathbf{a} - 4\mathbf{b} =  \begin{bmatrix}    2 \\ -6\end{bmatrix}$
+\end{enumerate}
+
+\section{More complex matrix arithmetic}
+Suppose
+\[ \mathbf{x} =  \begin{bmatrix}    3 \\ 2q \\ 6 \end{bmatrix} \text{ and } \begin{bmatrix}
+    p+2 \\-5 \\ 3r
+\end{bmatrix} \]
+If $\mathbf{x} = 2\mathbf{y}$, find $p,q,r$
+
+Solution
+\begin{align*}
+    \mathbf{x} &= 2\mathbf{y}
+    \\  \begin{bmatrix}    3 \\ 2q \\ 6 \end{bmatrix}  &= 2  \begin{bmatrix}
+    p+2 \\ -5 \\ 3r \end{bmatrix}
+    \\ \begin{bmatrix}    3 \\ 2q \\ 6 \end{bmatrix}  &= \begin{bmatrix}
+    2p+4 \\ -10 \\ 6r \end{bmatrix}
+    \\ & \begin{cases}
+        3 &= 2p+4
+        \\ 2q &= -10
+        \\ 6 &= 6r
+    \end{cases}
+    \\ & \begin{cases}
+        p &= -\frac{1}{2} 
+        \\ q &= -5
+        \\  r &=1
+    \end{cases}
+\end{align*}
+
+\section{Check for linear dependence}
+Which of the following sets of vectors are linearly dependent?
+In each part, you can denote each vector as $\mathbf{a},\mathbf{b},\mathbf{c}$ respectively.
+\begin{enumerate}
+    \item $\begin{bmatrix}
+    1 \\ 0\end{bmatrix}, \begin{bmatrix}
+    0 \\ 1\end{bmatrix}, \begin{bmatrix}
+    1 \\ 1\end{bmatrix}$
+    \item $\begin{bmatrix}
+    1 \\ 2\\3\end{bmatrix}, \begin{bmatrix}
+    4 \\ 5\\6\end{bmatrix}, \begin{bmatrix}
+    7\\ 8\\9\end{bmatrix}$
+    \item $\begin{bmatrix}
+    13 \\ 7 \\ 9\\ 2\end{bmatrix}, \begin{bmatrix}
+    0 \\ 0 \\ 0\\0\end{bmatrix}, \begin{bmatrix}
+    3\\ -2 \\ 5\\8\end{bmatrix}$
+    \item $\begin{bmatrix}
+    1 \\ 2 \\ 1\end{bmatrix}, \begin{bmatrix}
+    2 \\ -2 \\ -1\end{bmatrix}, \begin{bmatrix}
+    2 \\ 1\\3\end{bmatrix}$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item Linearly independent 
+    \item Linearly dependent. Proof:
+     \begin{align*}
+        \begin{vmatrix}
+           1 &4&7
+             \\ 2 & 5&8 \\
+            3&6&9
+        \end{vmatrix} = 1\left((5)(9) + (6)(8) \right) - 4\left( (2)(9) + (8)(3)\right) + 7\left( (2)(6) + (3)(5)\right) =0
+    \end{align*}
+    \item Linearly dependent. $\mathbf{b} = 0\cdot \mathbf{a}$
+    \item Linearly independent. Proof:
+     \begin{align*}
+         \begin{vmatrix}
+            1 &2&2
+             \\ 2 & -2 & 1 \\
+            1&-1&3
+        \end{vmatrix}
+        &= 1 \left((-2)(3) + (-1)(1)\right) -2 \left( (2)(3) + (1)(1)\right) + 2\left( (2)(-1)+(-2)(1)\right) 
+        \\ &= -29 \neq 0
+    \end{align*}
+\end{enumerate}
+
+\section{Vector length}
+Find the length of the following vectors:
+\begin{enumerate}
+    \item $(3,4)$
+    \item $(0,-3)$
+    \item $(1,1,1)$
+    \item $(1,2,3)$
+    \item $(1,2,3,4)$
+    \item $(3,0,0,0)$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $||(3,4)|| = \sqrt{3^2+4^2} = 5$
+    \item $||(0,-3)|| = \sqrt{0^2 + (-3)^2} = 3$
+    \item $||(1,1,1)|| = \sqrt{1^2+1^2+1^2} = \sqrt{3}$
+    \item $||(1,2,3)|| = \sqrt{1^2+2^2+3^2} = \sqrt{14}$
+    \item $||(1,2,3,4)|| = \sqrt{1^2+2^2+3^2+4^2} = \sqrt{30}$
+    \item $(3,0,0,0) = \sqrt{3^2}=3$
+\end{enumerate}
+
+\section{Law of Cosines}
+For each of the following pairs of vectors, calculate the angle between them. Report your answers in both
+radians and degrees. To convert between radians and degrees
+\begin{enumerate}
+    \item $\mathbf{v} = (1,0), \mathbf{w} = (2,2)$
+    \item $\mathbf{v} = (4,1), \mathbf{w} = (2,-8)$
+    \item $\mathbf{v} = (1,1,0), \mathbf{w} = (1,2,2)$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $\theta = \arccos\left(\frac{\mathbf{v}\cdot \mathbf{w}}{||\mathbf{v}||  \text{ }||\mathbf{w}||}\right) 
+    = \arccos\left(\frac{(1,0)\cdot (2,2)}{||(1,0)|| \text{ }  ||(2,2)||}\right) 
+    = \arccos\left(\frac{2}{(1)(2\sqrt{2})}\right) = \arccos\left(\frac{1}{\sqrt{2}}\right) = 45\deg$, $0.785$ rad
+    
+    \item $\theta = \arccos\left(\frac{\mathbf{v}\cdot \mathbf{w}}{||\mathbf{v}||  \text{ }||\mathbf{w}||}\right) 
+    = \arccos\left(\frac{(4,1)\cdot (2,-8)}{||(4,1)|| \text{ }  ||(2,-8)||}\right) 
+    = \arccos\left(\frac{8-8}{||(4,1)|| \text{ }  ||(2,-8)||}\right) 
+    =\arccos(0) = 90\deg$, $1.57$ rad
+    
+    \item $\theta = \arccos\left(\frac{\mathbf{v}\cdot \mathbf{w}}{||\mathbf{v}||  \text{ }||\mathbf{w}||}\right) 
+    = \arccos\left(\frac{(1,1,0)\cdot (1,2,2)}{||(1,1,0)|| \text{ }  ||(1,2,2)||}\right) 
+    = \arccos\left(\frac{3}{(\sqrt{2})(3)}\right) = \arccos\left(\frac{1}{\sqrt{2}}\right) = 45\deg$, $0.785$ rad
+\end{enumerate}
+
+\section{Matrix algebra}
+Using the matrices below, calculate the following. Some may not be defined; if that is the case, say so
+\[ \mathbf{A} = \begin{bmatrix}
+    3 \\ -2 \\ 9\end{bmatrix} \quad
+    \mathbf{B} = \begin{bmatrix}
+        8\\0\\-1    \end{bmatrix} \quad 
+        \mathbf{C} = \begin{bmatrix}
+    7&-1&5 \\ 0&-2&-4\end{bmatrix} \quad
+    \mathbf{D} = \begin{bmatrix}
+    3&1 \\ 3&4 \\ 3&-7\end{bmatrix} \quad
+    \mathbf{E} = \begin{bmatrix}
+    5&2&3 \\ 1&0&-4\\-2&1&-6\end{bmatrix} \quad
+\]
+\[\mathbf{F} = \begin{bmatrix}
+    4&1&-5 \\ 0&7&7 \\ 2&-3&0\end{bmatrix} \quad
+    \mathbf{G} = \begin{bmatrix}
+    2&-8&-5 \\ -3&7&-4\\ 1&0&3 \\ 1&2&6\end{bmatrix} \quad
+    \mathbf{K} = \begin{bmatrix}
+    9\\-2\\-1\\0\end{bmatrix} \quad
+    \]
+\[\mathbf{L} = \begin{bmatrix}
+     5&0&3&1\end{bmatrix} \quad
+     \mathbf{M} = \begin{bmatrix}
+    1&-1 \\ -1&3\end{bmatrix} \quad
+    \]
+\begin{enumerate}
+    \item $\mathbf{A}+\mathbf{B}$
+    \item $-\mathbf{G}$
+    \item $\mathbf{D}'$
+    \item $\mathbf{C}+\mathbf{D}$
+    \item $\mathbf{A}'\mathbf{B}$
+    \item $\mathbf{B}\mathbf{C}$
+    \item $\mathbf{F}\mathbf{B}$
+    \item $\mathbf{E}-5\mathbf{I}_3$
+    \item $\mathbf{M}^2$
+\end{enumerate}
+Solution
+\begin{enumerate}
+    \item $\mathbf{A}+\mathbf{B} 
+        = \begin{bmatrix}
+        3 \\ -2 \\ 9\end{bmatrix} 
+         + \begin{bmatrix}
+            8\\0\\-1    \end{bmatrix}
+         = \begin{bmatrix}
+        11 \\ -2 \\ 8\end{bmatrix} $
+    \item $-\mathbf{G}=  \begin{bmatrix}
+    -2&8&5 \\ 3&-7&4\\ -1&0&-3 \\ -1&-2&-6\end{bmatrix}$
+    \item $\mathbf{D}'=\begin{bmatrix}
+    3 & 3 & 3  \\ 1 & 4 & -7 \end{bmatrix} $
+    \item $\mathbf{C}+\mathbf{D}$ is not defined since $\mathbf{C},\mathbf{D}$ have different dimensions 
+    \item $\mathbf{A}'\mathbf{B}=\begin{bmatrix}
+    3 &-2&9 \end{bmatrix}\begin{bmatrix}
+        8\\0\\-1    \end{bmatrix} = \begin{bmatrix} (3)(8) + (-2)(0) + (9)(-1)    \end{bmatrix} = \begin{bmatrix} 2    \end{bmatrix}$
+    \item $\mathbf{B}\mathbf{C}$  is not defined since $\mathbf{B}_{col} \neq \mathbf{C}_{row}$
+    \item $\mathbf{F}\mathbf{B}=  \begin{bmatrix}
+    4&1&-5 \\ 0&7&7 \\ 2&-3&0\end{bmatrix}  \begin{bmatrix}
+        8\\0\\-1    \end{bmatrix} = 
+        \begin{bmatrix}    (4)(8) + (1)(0)+(-5)(-1) \\ (0)(8)+(7)(0)+(7)(-1) \\ (2)(8)+(-3)(0)+(0)(-1)\end{bmatrix} = 
+        \begin{bmatrix}    37 \\ -7 \\ 16 \end{bmatrix}$
+    \item $\mathbf{E}-5\mathbf{I}_3 = \begin{bmatrix}
+    5&2&3 \\ 1&0&-4\\-2&1&-6\end{bmatrix} - \begin{bmatrix}
+    5&0&0 \\ 0&5&0\\0&0&5\end{bmatrix}= 
+    \begin{bmatrix}    0&2&3 \\ 1&-5&-4\\-2&1&-11\end{bmatrix}$
+    \item $\mathbf{M}^2=\begin{bmatrix}
+    1&-1 \\ -1&3\end{bmatrix} \begin{bmatrix}
+    1&-1 \\ -1&3\end{bmatrix} 
+    = \begin{bmatrix}
+    (1)(1) + (-1)(-1) & (1)(-1)+(-1)(3) \\ (-1)(1)+(3)(-1) &(-1)(-1)+(3)(3)\end{bmatrix}
+    = \begin{bmatrix}
+    2 & -4 \\ -4 &10\end{bmatrix}$
+\end{enumerate}
+
+\section{Matrix inversion}
+Invert each of the following matricies by hand (you can use a calculator or computer to check your solution, but be sure to show your work). Verify you have the correct inverse by calculating $\mathbf{X}\mathbf{X}-1 = \mathbf{I
+}$. Not all of the matricies may be invertible - if not, show why.
+\begin{enumerate}
+    \item $\begin{bmatrix}
+    2&1 \\ 1&1\end{bmatrix} $
+    \item $\begin{bmatrix}
+    2&1 \\ -4&-2\end{bmatrix} $
+    \item $\begin{bmatrix}
+    2&4&0 \\ 4&6&3\\ -6&-10&0\end{bmatrix} $
+\end{enumerate}
+Solution
+
+\begin{enumerate}
+    \item $\begin{bmatrix}
+    2&1 \\ 1&1\end{bmatrix}^{-1} = \frac{1}{(2)(1)-(1)(1)} \begin{bmatrix}
+    1&-1 \\ -1&2\end{bmatrix} = \begin{bmatrix}
+    1&-1 \\ -1&2\end{bmatrix}$
+    
+    Checking my work, we show  $\mathbf{X}\mathbf{X}^{-1} = \mathbf{I}:$
+    \[ \begin{bmatrix}   2&1 \\ 1&1\end{bmatrix}
+    \begin{bmatrix}
+    1&-1 \\ -1&2\end{bmatrix}
+    = \begin{bmatrix}
+    (2)(1) + (1)(-1) & 
+    (2)(-1) + (1)(2)
+        \\ (1)(1)+ (1)(-1) &  (1)(-1)+ (1)(2)   \end{bmatrix}
+    =\begin{bmatrix}
+    1&0 \\ 0&1
+    \end{bmatrix} = \mathbf{I}_2
+     \]
+    
+    \item $\begin{bmatrix}
+    2&1 \\ -4&-2\end{bmatrix}^{-1}= \frac{1}{(2)(-2)-(-4)(1)}\begin{bmatrix} -2&-1 \\ 4&2\end{bmatrix} \to $ non-invertible since $ad=bc$.
+    
+    \item First, we check the determinant of the matrix to check for invertibility. 
+    \[ \det \mathbf{X} = 2\left[(6)(0) - (3)(-10)\right] -4\left[(4)(0) - (-6)(3)\right] + 0 = 60 - 72 =-12\neq 0\]
+    Gauss-Jordan method:
+    \begin{align*}
+            \begin{bmatrix}
+        2&4&0 \\ 4&6&3\\ -6&-10&0\end{bmatrix} 
+        & \to \begin{bmatrix}
+        2&4&0 &|& 1&0&0
+        \\ 4&6&3 &|& 0&1&0
+        \\ -6&-10&0 &|& 0&0&1
+        \end{bmatrix}
+        \\ &= \begin{bmatrix}
+            7& 14 &0 &|& \frac{7}{2} & 0&0
+            \\ 4&6&3 &|& 0&1&0
+            \\ -6&-10&0 &|& 0&0&1
+            \end{bmatrix} \begin{matrix} \leftarrow r_1=\frac{7}{2}r_1   \\ \\ \\ \end{matrix}
+        \\ &= \begin{bmatrix}
+            1& 4 &0 &|& \frac{7}{2} & 0&1
+            \\ 4&6&3 &|& 0&1&0
+            \\ -6&-10&0 &|& 0&0&1
+            \end{bmatrix} \begin{matrix} \leftarrow r_1=r_1+r_2   \\ \\ \\ \end{matrix}  
+        \\ &= \begin{bmatrix}
+            1& 4 &0 &|& \frac{7}{2} & 0&1
+            \\ 4&6&3 &|& 0&1&0
+            \\ 0& 1 &0 &|& \frac{3}{2}&0&\frac{1}{2}
+            \end{bmatrix} \begin{matrix}  \\ \\ \leftarrow r_3=\frac{1}{14}(r_3+6r_1)   \end{matrix}  
+        \\ &= \begin{bmatrix}
+            1& 4 &0 &|& \frac{7}{2} & 0&1
+            \\ 0& 1 &0 &|& \frac{3}{2}&0&\frac{1}{2}
+            \\ 4&6&3 &|& 0&1&0
+            \end{bmatrix} \begin{matrix}  \\ \leftarrow r_2 = r_3 \\ \leftarrow r_3=r_2   \end{matrix}  
+        \\ &= \begin{bmatrix}
+            1& 0 &0 &|&- \frac{5}{2} & 0&-1
+            \\ 0& 1 &0 &|& \frac{3}{2}&0&\frac{1}{2}
+            \\ 4&0&3 &|& -9&1&-3
+            \end{bmatrix} \begin{matrix} \leftarrow r_1 = r_1-4r_2 \\ \\ \leftarrow r_3=r_3-6r_2   \end{matrix}  
+        \\ &= \begin{bmatrix}
+            1& 0 &0 &|&- \frac{5}{2} & 0&-1
+            \\ 0& 1 &0 &|& \frac{3}{2}&0&\frac{1}{2}
+            \\ 0&0&1 &|& \frac{1}{3} &\frac{1}{3}& \frac{1}{3}
+            \end{bmatrix} \begin{matrix} \\ \\ \leftarrow r_3=\frac{1}{3}(r_3-4r_1)   \end{matrix}  
+        \\ \begin{bmatrix}
+        2&4&0 \\ 4&6&3\\ -6&-10&0\end{bmatrix}^{-1} 
+        &= \begin{bmatrix}
+            - \frac{5}{2} & 0&-1
+            \\\frac{3}{2}&0&\frac{1}{2}
+            \\ \frac{1}{3} &\frac{1}{3}& \frac{1}{3}
+            \end{bmatrix} 
+    \end{align*}
+\end{enumerate}
+
+\section{Dummy encoding for categorical variables}
+
+Ordinary least squares regression is a common method for obtaining regression parameters relating a set of explanatory variables with a continuous outcome of interest. The vector $\hat{\mathbf{b}}$ that contains the intercept and the regression slope is calculated by the equation:
+\[ \hat{\mathbf{b}} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}\]
+If an explanatory variable is nominal (i.e. ordering does not matter) with more than two classes
+(e.g. {White, Black, Asian, Mixed, Other}), the variable must be modified to include in the regression model.
+A common technique known as dummy encoding converts the column into a series of $n - 1$ binary (0/1) columns where each column represents a single class and $n$ is the total number of unique classes in the original column. Explain why this method converts the column into $n - 1$ columns, rather than n columns, in terms of linear algebra. Reminder: $\mathbf{X}$ contains both the dummy encoded columns as well as a column of 1s representing the intercept.
+
+Solution:
+
+The method converts the column into $n - 1$ columns, rather than $n$ columns because the column of 1s in $\mathbf{X}$ representing the intercept will be dropped in order to compute the vector $\hat{\mathbf{b}}$. This is because this column is guaranteed to be linearly dependent on the other columns of binary entries, causing multicolinearity in $\mathbf{X}$. If this column is not dropped, $\mathbf{X}$ will not be invertible and $(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$ could not be computed. 
+
+\section{Solve the system of equations}
+
+Solve the following systems of equations for $x, y, z$, either via matrix inversion or substitution
+\begin{enumerate}
+    \item $\begin{cases}
+        x+y+2z &= 2
+        \\ 3x-2y + z &= 1
+        \\ y-z &= 3
+    \end{cases}$
+    \item $\begin{cases}
+        x-y+2z &= 2
+        \\ 4x   + y - 2z &= 10
+        \\ x+3y+z &= 0
+    \end{cases}$
+\end{enumerate}
+
+Solution 
+\begin{enumerate}
+    \item Let $\mathbf{Y} = \begin{bmatrix}
+        2\\1\\3 \end{bmatrix}, \quad  \mathbf{X} = \begin{bmatrix}
+            x \\ y\\ z
+        \end{bmatrix}, \quad \beta = \begin{bmatrix}
+            1&1&2 \\ 3&-2&1 \\ 0&1&-1
+        \end{bmatrix}$ such that $\mathbf{Y}=\beta\mathbf{X}$. Using the known equations $\beta, \mathbf{Y}$ we compute $\beta^{-1} \mathbf{Y}= \mathbf{X}$.
+
+        First, we check for invertibility of $\beta$:
+        \[ \det \beta =(2-1)-(-3+0)+2(3+0)=10\neq 0\]
+        We now invert $\beta$ using the Gauss-Jordan method:
+        \begin{align*}
+            \begin{bmatrix}
+                 1&1&2 \\ 3&-2&1 \\ 0&1&-1
+                \end{bmatrix}^{-1} 
+            &\to \begin{bmatrix}
+                   1&1&2 &|& 1&0&0 
+                    \\  3&-2&1  &|& 0&1&0
+                    \\0&1&-1 &|& 0&0&1
+                \end{bmatrix}
+            \\ &\to \begin{bmatrix}
+                   1&1&2 &|& 1&0&0 
+                    \\  0 & 1&0  &|& \frac{3}{10}&-\frac{1}{10}&\frac{1}{2}
+                    \\0&1&-1 &|& 0&0&1
+                \end{bmatrix}\begin{matrix}
+                    \\  r_2 = -\frac{1}{10} (r_2 - 3r_1 -5r_3)
+                    \\%r_3=r_3-r_1
+                    \\ 
+                \end{matrix}
+            \\ &\to \begin{bmatrix}
+                   1&0&2 &|& \frac{7}{10}&\frac{1}{10}&-\frac{1}{2}
+                    \\  0 & 1&0  &|& \frac{3}{10}&-\frac{1}{10}&\frac{1}{2}
+                    \\0&0&1 &|&\frac{3}{10}&-\frac{1}{10}&-\frac{1}{2}
+                \end{bmatrix}\begin{matrix}
+                    r_1 = r_1 -r_2
+                    \\ %r_2 = r_2 - 3r_1 -5r_3
+                    \\r_3=-r_3+r_2
+                    \\ 
+                \end{matrix}
+            \\ &\to \begin{bmatrix}
+                   1&0&0 &|& \frac{1}{10}&\frac{3}{10}&\frac{1}{2}
+                    \\  0 & 1&0  &|& \frac{3}{10}&-\frac{1}{10}&\frac{1}{2}
+                    \\0&0&1 &|&\frac{3}{10}&-\frac{1}{10}&-\frac{1}{2}
+                \end{bmatrix}\begin{matrix}
+                    r_1 = r_1 -2r_3
+                    \\ %r_2 = r_2 - 3r_1 -5r_3
+                    \\%r_3=-r_3+r_2
+                    \\ 
+                \end{matrix}
+        \end{align*}
+
+         Now solving
+        \begin{align*}
+            \mathbf{X}&= \beta^{-1} \mathbf{Y}
+            \\ &= \begin{bmatrix}
+                    \frac{1}{10}&\frac{3}{10}&\frac{1}{2}
+                    \\ \frac{3}{10}&-\frac{1}{10}&\frac{1}{2}
+                    \\ \frac{3}{10}&-\frac{1}{10}&-\frac{1}{2}
+                \end{bmatrix}\begin{bmatrix}
+        2\\1\\3 \end{bmatrix}
+                \\ \begin{bmatrix}
+            x \\ y\\ z
+        \end{bmatrix}&= \begin{bmatrix}
+                    2
+                    \\ 2
+                    \\ -1
+                \end{bmatrix}
+        \end{align*}
+
+
+    \item Let $\mathbf{Y} = \begin{bmatrix}
+        2\\10\\0 \end{bmatrix}, \quad  \mathbf{X} = \begin{bmatrix}
+            x \\ y\\ z
+        \end{bmatrix}, \quad \beta = \begin{bmatrix}
+            1&-1&2 \\ 4&1&-2 \\ 1&3&-1
+        \end{bmatrix}$ such that $\mathbf{Y}=\beta\mathbf{X}$. Using the known equations $\beta, \mathbf{Y}$ we compute $\beta^{-1} \mathbf{Y}= \mathbf{X}$.
+
+        First, we check for invertibility of $\beta$:
+        \[ \det \beta = (-1+6)+(-4+2) +2(12-1) = 25 \neq 0\]
+        We now invert $\beta$ using the Gauss-Jordan method:
+        
+        \begin{align*}
+            \begin{bmatrix}
+                1&-1&2 \\ 4&1&-2 \\ 1&3&-1
+                \end{bmatrix}^{-1} 
+            &\to \begin{bmatrix}
+                    1&-1&2 &|& 1&0&0 
+                    \\ 4&1&-2  &|& 0&1&0
+                    \\ 1&3&-1 &|& 0&0&1
+                \end{bmatrix}
+            \\ &= \begin{bmatrix}
+                    1&-1&2 &|& 1&0&0 
+                    \\ 0&5&-10 &|& -4&1&0
+                    \\ 0&4&-3 &|& -1&0&1
+                \end{bmatrix}\begin{matrix}
+                    \\ r_2 = r_2 - 4r_1
+                    \\ r_3=r_3-r_1
+                    \\ 
+                \end{matrix}
+            \\ &= \begin{bmatrix}
+                    1&-1&2 &|& 1&0&0 
+                    \\ 0&-25&0 &|& -2&3&-10
+                    \\ 0&4&-3 &|& -1&0&1
+                \end{bmatrix}\begin{matrix}
+                    \\ r_2 = 3\left(r_2 - \frac{10}{3}r_3\right)
+                    \\ %r_3=r_3-r_1
+                    \\ 
+                \end{matrix}
+            \\ &= \begin{bmatrix}
+                    1&0&2 &|& \frac{27}{25}& \frac{-3}{25}&\frac{10}{25} 
+                    \\ 0&-25&0 &|& -2&3&-10
+                    \\ 0&0&1 &|& \frac{11}{25}&\frac{-4}{25}&\frac{1}{5}
+                \end{bmatrix}\begin{matrix}
+                r_1=r_1-\frac{1}{25}r_2
+                    \\
+                    \\ r_3 = \frac{1}{3}\left(r_3 + \frac{4}{25}r_2\right)
+                    \\ 
+                \end{matrix}
+            \\ &= \begin{bmatrix}
+                    1&0&0 &|& \frac{1}{5}& \frac{1}{5}&0 
+                    \\ 0&1&0 &|& \frac{2}{25}&-\frac{3}{25}&\frac{2}{5}
+                    \\ 0&0&1 &|& \frac{11}{25}&-\frac{4}{25}&\frac{1}{5}
+                \end{bmatrix}\begin{matrix}
+                r_1=r_1-2r_3
+                    \\ r_2 = -\frac{1}{25}r_2
+                    \\ %r_3=r_3-r_1
+                    \\ 
+                \end{matrix}
+            \\ \begin{bmatrix}
+                1&-1&2 \\ 4&1&-2 \\ 1&3&-1
+                \end{bmatrix}^{-1} 
+            &= \frac{1}{25}\begin{bmatrix}
+                    5& 5&0 
+                    \\ 2&-3&10
+                    \\  11&-4&5
+                \end{bmatrix}
+        \end{align*}
+        
+        Now solving
+        \begin{align*}
+            \mathbf{X}&= \beta^{-1} \mathbf{Y}
+            \\ &= \frac{1}{25}\begin{bmatrix}
+                    5& 5&0 
+                    \\ 2&-3&10
+                    \\  11&-4&5
+                \end{bmatrix}\begin{bmatrix}
+        2\\10\\0 \end{bmatrix}
+                \\ \begin{bmatrix}
+            x \\ y\\ z
+        \end{bmatrix}&= \begin{bmatrix}
+                    \frac{12}{5}
+                    \\ -\frac{26}{25} 
+                    \\ -\frac{18}{25}
+                \end{bmatrix}
+        \end{align*}
+\end{enumerate}
+
+\section{Multiplying by 0}
+When it comes to real numbers, we know that if $xy=0$, then either $x=0$ or $y=0$ orboth. One might believe that a similar idea applies to matricies, but one would be wrong. Prove that if the matrix product $\mathbf{AB} = 0$ (by which we mean a matrix of appropriate dimensionality made up entirely of zeroes), then it is not necessarily true that either $\mathbf{A} = \mathbf{0}$ or $\mathbf{B} = \mathbf{0}$. Hint: in order to prove that something is not always true, simply identify one example where $\mathbf{AB} = \mathbf{0}$, $\mathbf{A},\mathbf{B} \neq \mathbf{0}$.
+
+Solution
+
+Consider $ \mathbf{A} = \begin{bmatrix}
+    1&0 \\ 0&0\end{bmatrix},\mathbf{B} = \begin{bmatrix}
+        0&0\\0&1    \end{bmatrix}$ such that $\mathbf{AB} = \mathbf{0}$. These meet the necessary conditions, yet $\mathbf{AB} = \mathbf{0}$. Hence, if $\mathbf{AB} = 0$, then it is not necessarily true that either $\mathbf{A} = \mathbf{0}$ or $\mathbf{B} = \mathbf{0}$
+%%%%%%%%%%%%%%
+\end{document}
