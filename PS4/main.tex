@@ -26,6 +26,10 @@
 		Due Tuesday, September 2 \\
         %Bailey Meche
 	\end{center}
+
+%Time: 3 hrs
+
+%Difficulty: 1
  
 \section{Basic matrix arithmetic}
 If
@@ -423,26 +427,26 @@ Solution
         2\\10\\0 \end{bmatrix}, \quad  \mathbf{X} = \begin{bmatrix}
             x \\ y\\ z
         \end{bmatrix}, \quad \beta = \begin{bmatrix}
-            1&-1&2 \\ 4&1&-2 \\ 1&3&-1
+            1&-1&2 \\ 4&1&-2 \\ 1&3&1
         \end{bmatrix}$ such that $\mathbf{Y}=\beta\mathbf{X}$. Using the known equations $\beta, \mathbf{Y}$ we compute $\beta^{-1} \mathbf{Y}= \mathbf{X}$.
 
         First, we check for invertibility of $\beta$:
-        \[ \det \beta = (-1+6)+(-4+2) +2(12-1) = 25 \neq 0\]
+        \[ \det \beta = (1+6)+(4+2) +2(12-1) = 35 \neq 0\]
         We now invert $\beta$ using the Gauss-Jordan method:
         
         \begin{align*}
             \begin{bmatrix}
-                1&-1&2 \\ 4&1&-2 \\ 1&3&-1
+                1&-1&2 \\ 4&1&-2 \\ 1&3&1
                 \end{bmatrix}^{-1} 
             &\to \begin{bmatrix}
                     1&-1&2 &|& 1&0&0 
                     \\ 4&1&-2  &|& 0&1&0
-                    \\ 1&3&-1 &|& 0&0&1
+                    \\ 1&3&1 &|& 0&0&1
                 \end{bmatrix}
             \\ &= \begin{bmatrix}
                     1&-1&2 &|& 1&0&0 
                     \\ 0&5&-10 &|& -4&1&0
-                    \\ 0&4&-3 &|& -1&0&1
+                    \\ 0&4&-1 &|& -1&0&1
                 \end{bmatrix}\begin{matrix}
                     \\ r_2 = r_2 - 4r_1
                     \\ r_3=r_3-r_1
@@ -450,59 +454,56 @@ Solution
                 \end{matrix}
             \\ &= \begin{bmatrix}
                     1&-1&2 &|& 1&0&0 
-                    \\ 0&-25&0 &|& -2&3&-10
-                    \\ 0&4&-3 &|& -1&0&1
+                    \\ 0&1&0 &|& -\frac{6}{35}&-\frac{1}{35}&\frac{2}{7}
+                    \\ 0&4&-1 &|& -1&0&1
                 \end{bmatrix}\begin{matrix}
-                    \\ r_2 = 3\left(r_2 - \frac{10}{3}r_3\right)
+                    \\ r_2 = -\frac{1}{35}(r_2 -10r_3)
                     \\ %r_3=r_3-r_1
                     \\ 
                 \end{matrix}
             \\ &= \begin{bmatrix}
-                    1&0&2 &|& \frac{27}{25}& \frac{-3}{25}&\frac{10}{25} 
-                    \\ 0&-25&0 &|& -2&3&-10
-                    \\ 0&0&1 &|& \frac{11}{25}&\frac{-4}{25}&\frac{1}{5}
+                    1&0&2 &|& \frac{29}{35}&-\frac{1}{35}&\frac{2}{7}
+                    \\ 0&1&0 &|& -\frac{6}{35}&-\frac{1}{35}&\frac{2}{7}
+                    \\ 0&0&1 &|&\frac{11}{35}&-\frac{4}{35}&\frac{1}{7}
                 \end{bmatrix}\begin{matrix}
-                r_1=r_1-\frac{1}{25}r_2
-                    \\
-                    \\ r_3 = \frac{1}{3}\left(r_3 + \frac{4}{25}r_2\right)
+                    r_1 = r_1+r_2
+                    \\ %r_2 = -\frac{1}{35}(r_2 -10r_3)
+                    \\ r_3=-r_3+4r_2
                     \\ 
                 \end{matrix}
             \\ &= \begin{bmatrix}
-                    1&0&0 &|& \frac{1}{5}& \frac{1}{5}&0 
-                    \\ 0&1&0 &|& \frac{2}{25}&-\frac{3}{25}&\frac{2}{5}
-                    \\ 0&0&1 &|& \frac{11}{25}&-\frac{4}{25}&\frac{1}{5}
+                    1&0&0 &|& \frac{13}{35}&\frac{8}{35}&\frac{-2}{7}
+                    \\ 0&1&0 &|& -\frac{6}{35}&-\frac{1}{35}&\frac{2}{7}
+                    \\ 0&0&1 &|&\frac{11}{35}&-\frac{4}{35}&\frac{1}{7}
                 \end{bmatrix}\begin{matrix}
-                r_1=r_1-2r_3
-                    \\ r_2 = -\frac{1}{25}r_2
-                    \\ %r_3=r_3-r_1
+                    r_1 = r_1-2r_3
+                    \\ %r_2 = -\frac{1}{35}(r_2 -10r_3)
+                    \\ %r_3=-r_3+4r_2
                     \\ 
                 \end{matrix}
             \\ \begin{bmatrix}
-                1&-1&2 \\ 4&1&-2 \\ 1&3&-1
+                1&-1&2 \\ 4&1&-2 \\ 1&3&1
                 \end{bmatrix}^{-1} 
-            &= \frac{1}{25}\begin{bmatrix}
-                    5& 5&0 
-                    \\ 2&-3&10
-                    \\  11&-4&5
+            &=\begin{bmatrix}
+                   \frac{13}{35}&\frac{8}{35}&\frac{-2}{7}
+                    \\-\frac{6}{35}&-\frac{1}{35}&\frac{2}{7}
+                    \\ \frac{11}{35}&-\frac{4}{35}&\frac{1}{7}
+                \end{bmatrix}=  \frac{1}{35}\begin{bmatrix}
+                    13&8&-10 \\ -6&-1&10 \\ 11&-4&5
                 \end{bmatrix}
         \end{align*}
         
         Now solving
         \begin{align*}
             \mathbf{X}&= \beta^{-1} \mathbf{Y}
-            \\ &= \frac{1}{25}\begin{bmatrix}
-                    5& 5&0 
-                    \\ 2&-3&10
-                    \\  11&-4&5
+            \\ &= \frac{1}{35}\begin{bmatrix}
+                    13&8&-10 \\ -6&-1&10 \\ 11&-4&5
                 \end{bmatrix}\begin{bmatrix}
         2\\10\\0 \end{bmatrix}
                 \\ \begin{bmatrix}
             x \\ y\\ z
         \end{bmatrix}&= \begin{bmatrix}
-                    \frac{12}{5}
-                    \\ -\frac{26}{25} 
-                    \\ -\frac{18}{25}
-                \end{bmatrix}
+        \frac{12}{7}\\-\frac{26}{35}\\-\frac{18}{35} \end{bmatrix}
         \end{align*}
 \end{enumerate}
 
