@@ -1,0 +1,204 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+\begin{document}
+	\begin{center}
+		Assignment 5-6: Functions of several variables and optimization with several variables\\
+        MACSS 33000 1 \\
+		Due Tuesday, September 4 \\
+        %Bailey Meche
+	\end{center}
+
+%Time: 3 hrs
+
+%Difficulty: 1
+
+\section{Find first partial derivatives}
+Find all of the first partial derivatives of each function.
+
+\begin{enumerate}
+    \item $f(x,y) = 3x -2y^4 $
+        \begin{align*}
+            \frac{\partial}{\partial x}f(x,y) &=3
+            \\ \frac{\partial }{\partial y}f(x,y) &= -8y^3
+        \end{align*}
+    \item $f(x,y) = x^5 + 3x^3y^2 + 3xy^4$
+        \begin{align*}
+        \frac{\partial}{\partial x}f(x,y) &=5x^4 + 9x^2y^2+3y^4
+        \\ \frac{\partial }{\partial y}f(x,y) &= 6x^3y+12xy^3
+        \end{align*}
+    \item $g(x,y) = xe^{3y}$
+        \begin{align*}
+            \frac{\partial}{\partial x}g(x,y) &=e^{3y}
+        \\ \frac{\partial }{\partial y}g(x,y) &=3xe^{3y} 
+        \end{align*}
+    \item $k(x,y) = \frac{x-y}{x+y}$
+    \begin{align*}
+        \frac{\partial }{\partial x}k(x,y) &= \frac{2y}{(x+y)^2}
+        \\ \frac{\partial }{\partial y}k(x,y) &= \frac{-2x }{(x+y)^2}
+    \end{align*}
+    \item $h(x,y,z)= x^2e^{yz}$
+        \begin{align*}
+            \frac{\partial }{\partial x}h(x,y,z) &= 2xe^{yz}
+            \\ \frac{\partial }{\partial y}h(x,y,z) &= zx^2 e^{yz}
+            \\ \frac{\partial }{\partial z}h(x,y,z) &= yx^2 y^{yz}
+        \end{align*}
+\end{enumerate}
+
+\section{Find the gradient}
+Find the gradient $\grad f$ of the following functions and evaluate them at the given points
+\begin{enumerate}
+    \item $f(x,y) = \sqrt{x^2+y^2}, \quad (x,y)=(3,4)$
+    \[ \grad f = \begin{bmatrix}
+        x(x^2+y^2)^{-1/2} \\  y(x^2+y^2)^{-1/2}
+    \end{bmatrix} \to \grad f (x,y) = \begin{bmatrix}
+        \frac{3}{5} \\ \frac{4}{5}
+    \end{bmatrix}\]
+    \item $f(x,y,z) = (x+z)e^{x-y}, \quad (x,y,z)=(1,1,1)$
+    \[ \grad f = \begin{bmatrix}
+        (x+z+1)e^{x-y} \\ -2(x+z)e^{x-y} \\ e^{x-y}
+    \end{bmatrix} \to \grad f(1,1,1) = \begin{bmatrix}
+        3 \\ -4 \\ 1    \end{bmatrix}\]
+\end{enumerate}
+
+\section{Find the Hessian}
+Find the Hessian $\mathbb{H}$ for the following functions 
+
+\begin{enumerate}
+    \item $g(x,y) = x^4 -3x^2y^3$
+    \[ \begin{cases}
+        \frac{\partial g}{\partial x} = 4x^3 - 6xy^3
+        \\ \frac{\partial g}{\partial y} = -9x^2y^2 
+    \end{cases} \to \mathbb{H} f = \begin{bmatrix}
+        \frac{\partial^2 g}{\partial x^2} & \frac{\partial^2 g}{\partial x\partial y} \\ \frac{\partial^2 g}{\partial x\partial y}& \frac{\partial^2 g}{\partial y^2}
+    \end{bmatrix} = \begin{bmatrix}
+        12x^2 -6y^3 & -18xy^2 \\ -18xy^2 & -18x^2y
+    \end{bmatrix}
+    \]
+    \item $f(x,y,z) = xyz-x^2$
+    \[ \begin{cases}
+        \frac{\partial f }{\partial x} = yz - 2x
+        \\ \frac{\partial f}{\partial y}=xz
+        \\ \frac{\partial f}{\partial z} = xy
+    \end{cases} \to \mathbb{H} f = \begin{bmatrix}
+        -2 & z&y \\ z&0&x \\ y&x&0
+    \end{bmatrix}\]
+\end{enumerate}
+
+\section{Find the critical points }
+Find the local minimum values, local maximum values, and saddle point(s) of the function. Remember the
+process we discussed in class: Calculate the gradient, set it equal to zero to solve the system of equations,
+calculate the Hessian, and assess the Hessian at critical values. Be sure to show your work on each of these
+steps.4
+\begin{enumerate}
+    \item $f(x,y) = x^4 + y^4 -4xy +2$
+    \begin{align*}
+        \grad f(x,y) &= \begin{bmatrix}
+            4x^3 -4y \\ 4y^3 -4x        \end{bmatrix} = \Vec{0} \quad \to \quad \begin{cases}
+                x^3 =y
+                \\ y^3 =x  
+            \end{cases} \quad ; \quad \mathbb{H}f(x,y) = \begin{bmatrix}
+                12x^2 & -4 \\ -4 & 12y^2
+            \end{bmatrix}
+    \end{align*}
+\begin{center}
+\begin{tabular}{ c |c |c |c }
+ $(x_0,y_0)$ & $f_{xx} f(x_0,y_0)$ & $\det \mathbb{H}f(x_0,y_0)$ & Interpretation
+ \\  \hline \hline
+ $(0,0)$ &  0 & -16 & Saddle point\\  
+ $(1,1) $& 12 & 128 & Local minimum \\  
+ $(-1,-1)$&  12 & 128 & Local minimum 
+ \end{tabular}
+\end{center}
+
+    \item $k(x,y)=(1+xy)(x+y)$
+    \[ \grad k = \begin{bmatrix}
+        (1+xy) + y(x+y) \\(1+xy) + x(x+y) 
+    \end{bmatrix} = \Vec{0} \quad \to \quad \begin{cases}
+        y^2 + 2xy +1=0
+        \\ x^2 + 2xy +1=0
+    \end{cases} \quad ; \quad \mathbb{H}f(x,y) = \begin{bmatrix}
+                2y & 2x+2y \\ 2x+2y & 2x  \end{bmatrix}\]
+
+\begin{center}
+\begin{tabular}{ c |c |c |c }
+ $(x_0,y_0)$ & $f_{xx} k(x_0,y_0)$ & $\det \mathbb{H}k(x_0,y_0)$ & Interpretation
+ \\  \hline \hline
+ $(-1,1)$ &  2 &-4 & Saddle point\\  
+ $(1,-1) $&  -2 & -4 & Saddle point
+ \end{tabular}
+\end{center}
+\end{enumerate}
+
+\section{Definite integrals}
+Solve the following definite integrals using the antiderivative method.5
+For all these problems, the basic approach to compute the definite integral of $f(x)$ from a to b is by using the
+formula $F(b) - F(a)$, where $F(x)$ is the antiderivative of $f$.
+\begin{enumerate}
+    \item $\int_6^8 x^3 dx = \frac{1}{4}x^4 \bigg|_6^8  = \frac{1}{4}(8^4-6^4)=700$
+    \item $\int_{-1}^0 (3x^2 -1) dx = x^3 -x \bigg|_{-1}^0= 0-(-1-(-1))=0$
+    \item $\int_0^1 x^{\frac{3}{7}}dx = \frac{7}{10} x^{\frac{10}{7}} \bigg|_0^1 = \frac{7}{10}$
+    \item $\int_1^2 t^{-2}dt = -\frac{1}{3}t^{-3} \bigg|_1^2 = -\frac{1}{3}(2^{-3} -1) = \frac{7}{24}$
+    \item $\int_2^4 e^y dy = e^y \bigg|_2^4 = e^4-e^2$
+    \item $\int_8^9 2^x dx = \int_8^9 e^{x\log(2)} dx= \frac{1}{\log(2)}\int_{8\log(2)}^{9\log(2)}e^udu = \frac{2^x}{\log(2)}\bigg|_8^9 = \frac{2^8}{\log(2)}$
+    \item $\int_3^3 \sqrt{x^5+2} dx=0$ by the Fundamental Theorem of Calculus
+\end{enumerate}
+
+\section{Applied integration}
+Who traveled the farthest? The least far? 
+\begin{align*}
+    d_A(t) &= \int_{t_0}^{t_1} v_A(t) dt = \int_0^2 (2t^4+t)dt = \frac{2}{5}t^5 + \frac{1}{2}t^2 \bigg|_0^2 = \frac{74}{5}
+    \\ d_B(t) &= \int_{t_0}^{t_1} v_B(t) dt = \int_0^4 4\sqrt{t}dt = 4\cdot \frac{2}{3} \cdot t^{\frac{3}{2}}\bigg|_0^4 = \frac{64}{3}
+    \\  d_C(t) &= \int_{t_0}^{t_1} v_C(t) dt = \int_0^{20}2e^{-t}dt = -2e^{-t}\bigg|_0^{20} =  -2e^{-20}+2
+\end{align*}
+Student B travelled the farthest and Student C travelled the least far. 
+
+\section{Indefinite integrals}
+Calculate the following indefinite integrals
+\begin{enumerate}
+    \item $\int (x^2 - x^{-\frac{1}{2}})dx = \frac{1}{3}x^3 -2x^{\frac{1}{2}}+C$
+    \item $\int 360t^6dt = \frac{360}{7}t^7+C $
+    \item $\int 2x \log(x^2) dx = \int 4x\log(x)dx$
+    \begin{align*}
+        \begin{cases}
+            u=\log(x) & du = \frac{1}{x}dx
+            \\ dv = 4xdx & v =\frac{4}{5}x^5+C
+        \end{cases}
+        \\ \int 2x \log(x^2) dx &= \frac{4}{5}x^5 \log(x) - \frac{4}{5}\int x^4 dx
+        \\ &=  \frac{4}{5}x^5 \log(x) - \frac{4}{25}x^5+C
+    \end{align*}
+\end{enumerate}
+
+\section{Determining convergence}
+Determine whether each integral is convergent or divergent. Evaluate those that are convergent.
+\begin{enumerate}
+    \item $\int_1^\infty \frac{1}{9x^2}dx = \lim\limits_{b \to \infty} \int_1^b \frac{1}{9x^2}dx = -\frac{1}{27}\lim\limits_{b \to \infty} (b^{-3}-1) = \frac{1}{27} \to $ converges
+    \item $\int_0^\infty \cos(x)dx = \lim\limits_{b \to \infty}\int_0^b \cos(x)dx =\lim\limits_{b \to \infty} \sin(x) \to $ does not converge
+    \item $\int_0^\infty e^{-x}dx = \lim\limits_{b \to \infty}\int_0^b e^{-x}dx=   \lim\limits_{b \to \infty} (-e^{-b}+1)=1 \to $ converges
+    \item $\int_{-\infty}^0 x^3 dx = \lim\limits_{b \to -\infty}\int_{b}^0 x^3 dx = \lim\limits_{b \to -\infty} -\frac{1}{4}b^4 \to$ does not converge
+\end{enumerate}
+
+\section{More integrals}
+Calculate the following integrals
+\begin{enumerate}
+    \item $\int_0^1 \int_2^3 x^2 y^3 dxdy = \int_0^1 \left(\frac{19}{3}\right)y^3 dy = \frac{19}{12}$
+    \item $\int_2^3 \int_0^1 x^2y^3 dydx = \frac{1}{4} \int_2^3 x^2 = \frac{5}{12}$
+    \item $\int_0^1 \int_0^{\sqrt{1-x^2}}2x^3y dydx = \int_0^1 x^3(1-x^2)dx= \frac{1}{4}x^4- \frac{1}{6}x^6\bigg|_0^1 = -\frac{1}{12}$
+\end{enumerate}
+\end{document}
