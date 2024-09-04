@@ -22,7 +22,7 @@
 		Assignment 5-6: Functions of several variables and optimization with several variables\\
         MACSS 33000 1 \\
 		Due Tuesday, September 4 \\
-        %Bailey Meche
+       % Bailey Meche
 	\end{center}
 
 %Time: 2 hrs
@@ -174,21 +174,22 @@ Calculate the following indefinite integrals
 \begin{enumerate}
     \item $\int (x^2 - x^{-\frac{1}{2}})dx = \frac{1}{3}x^3 -2x^{\frac{1}{2}}+C$
     \item $\int 360t^6dt = \frac{360}{7}t^7+C $
-    \item $\int 2x \log(x^2) dx = \int 4x\log(x)dx$
+    \item $\int 2x \log(x^2) dx = 4\int x\log(x)dx$
     \begin{align*}
         \begin{cases}
             u=\log(x) & du = \frac{1}{x}dx
-            \\ dv = 4xdx & v =\frac{4}{5}x^5+C
+            \\ dv = x dx & v =\frac{1}{2}x^2+C
         \end{cases}
-        \\ \int 2x \log(x^2) dx &= \frac{4}{5}x^5 \log(x) - \frac{4}{5}\int x^4 dx
-        \\ &=  \frac{4}{5}x^5 \log(x) - \frac{4}{25}x^5+C
+        \\ \int 2x \log(x^2) dx &= 4\left( \frac{1}{2}x^2 \log(x) - \frac{1}{2} \int x dx\right)
+        \\ &=  4\left( \frac{1}{2}x^2 \log(x) - \frac{1}{4} x^2\right)
+        \\ &= x^2(\log(x^2)-1)
     \end{align*}
 \end{enumerate}
 
 \section{Determining convergence}
 Determine whether each integral is convergent or divergent. Evaluate those that are convergent.
 \begin{enumerate}
-    \item $\int_1^\infty \frac{1}{9x^2}dx = \lim\limits_{b \to \infty} \int_1^b \frac{1}{9x^2}dx = -\frac{1}{27}\lim\limits_{b \to \infty} (b^{-3}-1) = \frac{1}{27} \to $ converges
+    \item $\int_1^\infty \frac{1}{9x^2}dx = \lim\limits_{b \to \infty} \int_1^b \frac{1}{9x^2}dx = -\frac{1}{9}\lim\limits_{b \to \infty} (b^{-1}-1) = \frac{1}{9} \to $ converges
     \item $\int_0^\infty \cos(x)dx = \lim\limits_{b \to \infty}\int_0^b \cos(x)dx =\lim\limits_{b \to \infty} \sin(x) \to $ does not converge
     \item $\int_0^\infty e^{-x}dx = \lim\limits_{b \to \infty}\int_0^b e^{-x}dx=   \lim\limits_{b \to \infty} (-e^{-b}+1)=1 \to $ converges
     \item $\int_{-\infty}^0 x^3 dx = \lim\limits_{b \to -\infty}\int_{b}^0 x^3 dx = \lim\limits_{b \to -\infty} -\frac{1}{4}b^4 \to$ does not converge
