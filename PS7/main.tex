@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+\begin{document}
+	\begin{center}
+		Assignment 7: Sample space and probability\\
+        MACSS 33000 1 \\
+		Due Tuesday, September 5 \\
+       Bailey Meche
+	\end{center}
+
+\section{Sets}
+Consider rolling a six-sided die. Let A be the set of outcomes where the roll is an even number. Let B be the
+set of outcomes where the roll is greater than 3. Calculate the sets on both sides of De Morgan’s Laws
+
+
+\textbf{Solution}
+
+Let 
+\begin{enumerate}
+    \item $A = \{2,4,6\}$
+    \item $B = \{4,5,6\}$
+\end{enumerate}
+Then, we have 
+\begin{align*}
+    A \cup B &= \{2,4,5,6\} \\
+    (A \cup B)^c &= \{1,3\}
+    \\ &= \{1,3\} = \{1,3,5\} \cap \{1,2,3\}
+    \\ &= A^c \cap B^c
+\end{align*}
+
+\section{Ghostbusting}
+Twenty ghostbusters are on their annual camping retreat. Two of them, Abe and Betty, have discovered
+that another pair, Candace and Dan, are in fact ghosts posing as ghostbusters. Abe and Betty hatch a plan:
+When all 20 campers are sitting in a circle around the campfire, Abe will fire his proton pack at Candace,
+and Betty will simultaneously fire her proton pack at Dan, annihilating the ghosts. However, if two proton
+streams cross (that is, if the paths of their weapons intersect), it means the end of all life on Earth.
+If the ghostbusters are arranged randomly around the fire, what are the chances that Abe and Betty will
+cross streams?
+
+\textbf{Solution}
+
+By fixing $A$, we calculate the probability that the stream from Betty to Dan intersects that of Abe to Candace. We calculate this by taking the possible arrangements of members around the circle:
+\[BCD,BDC,CBD,CDB,DBC,DCB\]
+of which the outcomes $BCD,DCB$ result in intersections. For each of these arrangements, the point $C$ may be arbitrarily chosen. This results in symmetric arrangement possibilities around the 20 seats for $B$ and $D$. Therefore, we may simplify the possible arrangements down to the relative arrangements given above. This gives the probability that the streams will intersect
+\[ \Pr(BCD \text{ or } DCB) = \frac{\{BCD,DCB\}}{\{BCD,BDC,CBD,CDB,DBC,DCB\}} = \frac{1}{3}.\]
+
+ \section{Calculate probabilities in a sample space }
+
+ Events A and B are contained within a sample space $S$. Given that $\Pr(A) = 0.5$, $\Pr(B) = 0.3$ and $\Pr(A \cap B) = 0.1$, find
+ \begin{enumerate}
+     \item $\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A\cap B) = 0.5+0.3-0.1=0.7$
+     \item $\Pr(A \cap B^c) =\Pr(A) - \Pr(A \cap B) = 0.5 - 0.1 = 0.4$
+     \item $\Pr\left[(A \cap B^c) \cup (B \cap A^c)\right] =\left(\Pr(A \cap B^c) - \pr(A \cap B)\right) + \left(\Pr(A \cap B^c)-\Pr(A \cap B)\right) = 0.5 - 0.1 + 0.3 - 0.1 = 0.6 $
+ \end{enumerate}
+
+\section{Silly campaigns, polling is for political scientists}
+A political campaign in New Haven, CT decides to conduct an “experiment” to determine the effectiveness of
+knocking on a door in turning a resident of that house out to vote. The campaign foolishly denies an offer
+from a team of political scientists to help them design a protocol for this experiment, and instead directs
+their two teams of volunteers to each select a random group of the 120 total houses in the district and to go
+knock on as many of those random doors as they can in the week before the election. The campaign manager
+directs the teams to count the number of doors on which they knock and to record the names of the residents
+who live in each house, but neglects to ensure that the two teams select a mutually exclusive set of houses, or
+to set bounds on how many houses each team chooses.
+On election day, the Team 1 members return, and proudly report to the campaign manager that they knocked
+on 70\% of the doors in the electoral district. The Team 2 members return shortly after, and report that they
+knocked on 40\% of the doors in the electoral district. In looking over the names the teams recorded, the
+campaign manager quickly determines that not only was every house in the district contacted, but some
+houses were contacted by both teams. (This will make drawing inferences about the effectiveness of door
+knocking . . . difficult.)
+Use what we have learned about probability to determine how many houses had their doors knocked on by
+both teams.
+
+\textbf{Solution}
+
+Team 1 knocked on 70\% of 120 = 84 houses.
+Team 2 knocked on 40\% of 120 = 48 houses.
+The number of houses polled by both teams is $(81+48)-120 = 12 = 10\%$ houses. 
+
+\section{Rolling the dice}
+We roll two fair 6-sided dice. Each one of the 36 possible outcomes is assumed to be equally likely.
+\begin{enumerate}
+    \item Find the probability that doubles are rolled.
+    \[ \Pr\left\{(1,1),(2,2),...,(6,6)\right\} = \frac{6}{36} = \frac{1}{6}\]
+    \item Given that the roll results in a sum of 4 or less, find the conditional probability that doubles are rolled
+    \begin{align*}
+        \text{Let $A,B$ be the two results of the die}&
+        \\ \Pr(A+B\leq 4) &= \Pr\left\{(1,1),(1,2),(1,3),(2,1),(2,2),(3,1) \right\} = \frac{1}{6}
+        \\ \Pr(\text{doubles}) &= \frac{1}{6}
+        \\ \Pr(\text{doubles} \bigg| A+B\leq 4) &= \frac{\Pr(\text{doubles} \cap A+B\leq 4)}{\Pr(A+B\leq 4)} 
+        = \frac{\Pr\left\{(1,1),(2,2)\right\}}{\frac{1}{6}} 
+        = \frac{2}{36} \cdot \frac{6}{1} = \frac{1}{3}
+    \end{align*}
+    \item Find the probability that at least one die roll is a 6.
+    \[ \Pr\left\{(6,1),(6,2),...,(6,6),(1,6),...,(5,6)\right\} = \frac{6+55}{36}=\frac{11}{36}\]
+    \item Given that the two dice land on different numbers, find the conditional probability that at least one die
+roll is a 6.
+    \begin{align*}
+        \Pr(A \neq B) &= \Pr(\text{doubles}^c) = 1-\frac{1}{6}=\frac{5}{6}
+        \\ \Pr(\text{one 6} \bigg| A \neq B) &= \frac{\Pr(\text{one 6}) \textbackslash \{(6,6)\}}{\frac{5}{6}} = \frac{1}{3}
+    \end{align*}
+\end{enumerate}
+
+\section{A two-envelope puzzle}
+The release of two out of three prisoners has been announced, but their identity is kept secret. One of the
+prisoners considers asking a friendly guard to tell him who is the prisoner other than himself that will be
+released, but hesitates based on the following rationale: at the prisoner’s present state of knowledge, the
+probability of being released is 2/3, but after he knows the answer, the probability of being released will
+become 1/2, since there will be two prisoners (including himself) whose fate is unknown and exactly one of.
+the two will be released. What is wrong with this line of reasoning
+
+\textbf{Solution}
+
+Regardless of prior knowledge, the prisoner's probability of release remains $\frac{2}{3}$. The decision by which the prisoners are released were not conditional on one of the other 2 prisoners being in the released group. As far as we know, each of the prisoners have an equal probability of being released. 
+
+\section{Survey Says}
+A survey has 52\% respondents 50 or older and 48\% respondents under 50. Within the survey, on a particular
+question, 9.5\% of the 50-plus population agrees strongly while 1.7\% of under 50 respondents agree strongly.
+
+\begin{enumerate}
+    \item What is the probability someone selected at random is 50 or older?
+    \[ 52\%\]
+    \item  The selected individual strongly agrees with the survey question. Now what is the likelihood that
+person is 50 or older? Explain your reasoning and SHOW ALL YOUR WORK
+    \begin{align*}
+        \Pr(\text{Age}\geq 50 \bigg| \text{Agrees}) &= \frac{\Pr(\text{Age} \geq 50 \cap \text{Agree}) }{\Pr(\text{Agree}) }
+        \\ &= \frac{9.5\%}{9.5\% + 1.7\%} \approx 81.2\%
+    \end{align*}
+    \item  Are the two answers above the same or different? Explain.
+
+    They are different since conditional knowledge was provided. 
+    \item (for fun, no points) What is the survey question?
+
+    "Is the US economy getting better?"
+\end{enumerate}
+
+\end{document}
