@@ -1,0 +1,158 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+\begin{document}
+	\begin{center}
+		Assignment 8: Discrete random variables\\
+        MACSS 33000 1 \\
+		Due Friday, September 6 \\
+       Bailey Meche
+	\end{center}
+
+\section{PMF vs CMF}
+
+Consider the following function: $f(x) = \frac{1}{8}$. Find the pmf and cmf of the function and provide them in a table below.
+
+\textbf{Solution}
+
+Considering the function $f(x)$ for discrete random variable $X$, we may generate a pmf as the probability that $X$ lies somewhere on the function. Since this function is uniform at $\frac{1}{8}$, we have the pmf \[\Pr(X=x)= p_X(x) = \frac{1}{8} \text{ such that } x \in \{0,1,...,7\}. \]
+The range was found by solving for $m$ such that \[ \sum_{x=0}^m p_X(x)=1.\]
+Using the pmf to generate the cmf, we have 
+\[ \Pr(X \leq x) = F(x) = \frac{1}{8}x+\frac{1}{8} 
+\text{ such that } x \in \{0,1,...,7\}\]
+
+
+\begin{center}
+\begin{tabular}{ c |c |c  }
+ $X=1$ & $p_X(x)$ & $F(x)$ 
+ \\  \hline 
+ $X=0$ &  $\frac{1}{8}$ & $\frac{1}{8}$\\  
+ $X=1 $& $\frac{1}{8}$& $\frac{1}{4}$ \\  
+ $X=2$&  $\frac{1}{8}$ & $\frac{3}{8}$
+ \\ \vdots & \vdots &\vdots
+ \\ $X=7$ & $\frac{1}{8}$ & 1
+ \end{tabular}
+\end{center}
+
+\section{Conversion of temperatures}
+A city’s temperature is modeled as a random variable with mean and standard deviation equal to 10 degrees Celsius. A day is described as “normal” if the temperature during that day ranges within one standard deviation from the mean. What would be the temperature range for a normal day if temperature were expressed in degrees Fahrenheit?
+
+\textbf{Solution}
+
+Temperature range in this case is the mean plus (and minus) one standard deviation. 
+\[ \text{Temp} = 10\deg C \pm 10 \deg C = (0\deg C,20\deg C) = (35 \deg F, 68 \deg F)  \]
+
+\section{Getting a traffic ticket}
+You drive to work 5 days a week for a full year (50 weeks), and with probability $p = 0.02$ you get a traffic ticket on any given day, independent of other days. Let $X$ be the total number of tickets you get in the year.
+
+\begin{enumerate}
+    \item What is the probability that the number of tickets you get is exactly equal to the expected value of X?
+
+    \begin{enumerate}
+        \item The random variable $X$ counts the total number of tickets you get in the year, so we have $X \sim $ binomial$(N,p)$ = binomial$(250,0.02)$
+        \item Constructing the pmf, we have 
+        \[ p_X(k) = \binom{250}{k}(0.02)^k(0.98)^{250-k} \text{ such that } k \in \{0,...,250\}\]
+        \item Computing the expected value of $X$ using the pmf,
+        \begin{align*}
+            E[X] &= \sum_{i=1}^N E[Y_i] 
+            \\ &= Np
+            \\ &= 250(0.02)
+            \\ &= 5.
+        \end{align*}
+        \item Now finding the probability that the number of tickets you get is exactly equal to the expected value of $X$:
+        \begin{align*}
+             \Pr(X=5) &= p_X(5) 
+             \\ &= \binom{250}{5}(0.02)^5(0.98)^{245} 
+             \\ &\approx 0.18
+        \end{align*}
+    \end{enumerate}
+    
+    \item Calculate approximately the probability in (1) using a Poisson approximation.
+    We are given that
+    \[ e^{-\lambda} \frac{\lambda^k}{k!} \approx \binom{n}{k}\pi^k(1-\pi)^{n-k} \text{ where 
+ } \lambda = np.\]
+    Using this, we have 
+    \[ p_X(5) = e^{-5} \frac{5^5}{5!}\approx 0.18. \]
+\end{enumerate}
+
+\section{The Unbirthday Song}
+“The Unbirthday Song” from “Alice in Wonderland” can be sung to an individual on any day it is not that person’s birthday with p = 364/365. You decide to sing this song to N random people until you encounter someone who’s birthday is today. At this point your singing streak ends. Find the PMF, the expected value, and the variance of the number of people needed before you encounter a person whose birthday is today.
+
+\textbf{Solution}
+
+Let $X$ be the random variable that counts the number of people encountered before finding someone whose birthday is today. This implies $X \sim $ geometric$(\frac{364}{365})$. Generating the pmf for this:
+\[ f_X(k) = (1-p)^kp \text{ for } p=\frac{364}{365}\text{, }k=1,2,...\]
+Finding the expected value, 
+\[ E[X] = \sum_{i=1}^\infty E[Y-i] \text{ for } Y_i \sim \text{bernoulli}(p) = \frac{1}{p} = \frac{365}{364}.\]
+Finding the variance, 
+\[ Var[X] = \frac{1-p}{p^2} = \frac{1}{365}\cdot \frac{365^2}{364^2} = \frac{365}{364^2}\]
+
+\section{Properties of variance}
+For a discrete random variable X, show that:
+\[ Var(X) = E[X^2]-E[X]^2\]
+
+\textbf{Proof.} Assume that the mean of $X$ is finite and exists. Let $E[X]=\mu_x$ as the mean distribution of $X$. We may then use $r(X) = (X - \mu_X)^2$ as a measure of variability in the distribution of $X$. Now starting with the definition of the variance, 
+\begin{align*}
+    Var(X) &= E[(X-\mu_X)^2]
+    \\ &= E[X^2 - 2X\mu_X +\mu_X^2]
+    \\ &= E[X^2] - 2\mu_X E[X] + \mu_X^2
+    \\ &= E[X^2] -2E[X]^2 + E[X]^2      & \text{ Using }E[X]=\mu_x
+    \\ &= E[X^2]-E[X]^2
+\end{align*}
+
+\section{Calculate an exact probability}
+The random variable X has a probability density function:
+\[ f(x;\lambda) = e^{-\lambda}\frac{\lambda^x}{x!}\]
+for $x=0,1,2,...$ (i.e. X has a Poisson distribution with parameter $\lambda$). In a lengthy manuscript, it is
+discovered that only 13.5 percent of the pages contain no typing errors.
+
+If we assume that the number of errors per page is a random variable with a Poisson distribution, find the
+percentage of pages with exactly one error.
+
+\textbf{Solution}
+
+\begin{align*}
+    \Pr(X=x; \lambda) &= e^{-\lambda}\frac{\lambda^x}{x!}
+    \\ \Pr(X=0;\lambda) &= e^{-\lambda}\frac{\lambda^0}{0!} &= 0.135
+\end{align*}
+
+\section{Obtaining requests for information}
+X is a discrete random variable. It takes the value of the number of days required for a governmental agency to respond to a request for information. X is distributed according to the following PMF:6
+−4 4x
+f(x) = e x! for X ∈ {0,1,2...}
+a. Given this information, what is the probability of a response from the agency in 3 days or less?
+
+
+
+What is the probability the agency response takes more than 10 but less than 13 days?
+c. What is the probability the agency response takes more than 5 days?
+d. Suppose using X you generate a new variable, Responsive. Responsive equals 1 if an agency responds in 5 days or less and 0 otherwise. What is the expected value of Responsive?
+e. What is the variance of Responsive?
+
+Modeling electoral outcomes
+Suppose we’ve developed a model predicting the outcome of the upcoming midterm elections in a state with 4 Congressional districts. In each district there are two candidates, a Republican and a Democrat. We have reason to believe the following PMF describes the distribution of potential election results where K ∈ {0, 1, 2, 3, 4} and is the number of seats won by Republican candidates in the upcoming election.
+4 k 4−k Pr(K=k|θ)= k θ (1−θ)
+Based on polling information, we think the appropriate value for θ is 0.55.7
+a. What’s the expected number of seats Republicans will win in the upcoming election?
+a. Given this PMF, what’s the probability that no Republican legislators win in the upcoming election?
+b. What’s the probability that Republican legislators win a majority of the seats in this state?
+
+c. A prominent political pundit declares they are certain that Republicans will win a majority of seats in the next election and offers the following bet. If Republicans win a majority of the seats, we must pay the pundit \$15.00. If Republican’s fail to win a majority of states, we will win \$20.00. Based on our model, should we take this bet? Hint: Think of the betting outcomes as a random variable. Find the expected value of this random variable.
+d. Suppose we are offered a second bet with a more complicated structure. In this case we’ll receive \$100 if the Republicans win a majority, \$50 if neither party wins a majority and we’ll have to pay \$200 if the Democrats win a majority. Should we take this bet?
+\end{document}
