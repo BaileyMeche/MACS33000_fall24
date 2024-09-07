@@ -22,7 +22,7 @@
 		Assignment 8: Discrete random variables\\
         MACSS 33000 1 \\
 		Due Friday, September 6 \\
-%       Bailey Meche
+     % Bailey Meche
 	\end{center}
 
 \section{PMF vs CMF}
@@ -97,11 +97,11 @@ You drive to work 5 days a week for a full year (50 weeks), and with probability
 \textbf{Solution}
 
 Let $X$ be the random variable that counts the number of people encountered before finding someone whose birthday is today. This implies $X \sim $ geometric$(\frac{364}{365})$. Generating the pmf for this:
-\[ f_X(k) = (1-p)^kp \text{ for } p=\frac{364}{365}\text{, }k=1,2,...\]
+\[ f_X(k) = (1-p)^kp \text{ for } p=\frac{1}{365}\text{, }k=1,2,...\]
 Finding the expected value, 
-\[ E[X] = \sum_{i=1}^\infty E[Y-i] \text{ for } Y_i \sim \text{bernoulli}(p) = \frac{1}{p} = \frac{365}{364}.\]
+\[ E[X] = \sum_{i=1}^\infty E[Y-i] \text{ for } Y_i \sim \text{bernoulli}(p) = \frac{1}{p} = 365.\]
 Finding the variance, 
-\[ Var[X] = \frac{1-p}{p^2} = \frac{1}{365}\cdot \frac{365^2}{364^2} = \frac{365}{364^2}\]
+\[ Var[X] = \frac{1-p}{p^2} = \frac{364}{365}\cdot 365^2 = 364\cdot365\]
 
 \section{Properties of variance}
 For a discrete random variable X, show that:
@@ -130,13 +130,13 @@ percentage of pages with exactly one error.
     \Pr(X=x; \lambda) = e^{-\lambda}\frac{\lambda^x}{x!}
     \\ \Pr(X=0;\lambda) = e^{-\lambda}\frac{\lambda^0}{0!} &= 0.135
     \\  e^{-\lambda} &= 0.135
-    \\ \lambda &= -\log(0.135)\approx 0.87
+    \\ \lambda &= -\log(0.135)\approx 2
 \end{align*}
 Now calculating the percentage of pages with exactly one error:
 \begin{align*}
     \Pr(X=1;\lambda) &= e^{-\lambda}\lambda 
     \\ &= -0.135\log(0.135)
-    \\ &\approx 0.12
+    \\ &\approx 0.27.
 \end{align*}
 
 
@@ -181,8 +181,8 @@ $X$ is a discrete random variable. It takes the value of the number of days requ
 
 \section{Modeling electoral outcomes}
 Suppose we’ve developed a model predicting the outcome of the upcoming midterm elections in a state with 4 Congressional districts. In each district there are two candidates, a Republican and a Democrat. We have reason to believe the following PMF describes the distribution of potential election results where $K \in \{0, 1, 2, 3, 4\}$ and is the number of seats won by Republican candidates in the upcoming election.
-\[ \Pr(K=k | \theta) = \binom{4}{\theta}\theta^k    (1-\theta)^{4-k}\]
-Based on polling information, we think the appropriate value for $\theta$ is 0.55.7
+\[ \Pr(K=k | \theta) = \binom{4}{k}\theta^k    (1-\theta)^{4-k}\]
+Based on polling information, we think the appropriate value for $\theta$ is 0.55.
 
 \begin{enumerate}
     \item What’s the expected number of seats Republicans will win in the upcoming election?
@@ -192,26 +192,26 @@ Based on polling information, we think the appropriate value for $\theta$ is 0.5
     \item Given this PMF, what’s the probability that no Republican legislators win in the upcoming election?
 
     \textbf{Solution.}
-    \[ \Pr(K=0 | \theta) = \binom{4}{0.55}    (0.45)^{4} \approx 0.102. \]
+    \[ \Pr(K=0 | \theta) = \binom{4}{0}    (0.45)^{4} \approx 0.04. \]
     
     \item What’s the probability that Republican legislators win a majority of the seats in this state?
 
     \textbf{Solution.} 
     \begin{align*}
          \Pr(\text{Republican majority}) &= F_K(4)-F_K(2) 
-         \\ &= \sum_{k\in\{3,4\}}\binom{4}{\theta}\theta^k    (1-\theta)^{4-k} 
-         \\ &= \binom{4}{\theta}\theta^3    (1-\theta) + \binom{4}{\theta}\theta^4 
-         \\ &\approx 0.41.
+         \\ &= \sum_{k\in\{3,4\}}\binom{4}{k}\theta^k    (1-\theta)^{4-k} 
+         \\ &= \binom{4}{3}\theta^3    (1-\theta) + \binom{4}{4}\theta^4 
+         \\ &\approx 0.39.
     \end{align*}
 
     \item  A prominent political pundit declares they are certain that Republicans will win a majority of seats in the next election and offers the following bet. If Republicans win a majority of the seats, we must pay the pundit \$15.00. If Republican’s fail to win a majority of states, we will win \$20.00. Based on our model, should we take this bet? Hint: Think of the betting outcomes as a random variable. Find the expected value of this random variable.
 
     \textbf{Solution.} Let $X=\{-15,20\}$ be a binary random variable that is -15 if the Republicans win a majority of the seats with probability $p$, and 20 otherwise. 
-    To use $p$, we use question 3 where $p\approx 0.41$.
+    To use $p$, we use question 3 where $p\approx 0.39$.
     Computing the expected value of this bet to judge if we should take it, we have 
-    \[ E[X] = \sum_{i \in \Omega} p_iX_i = -15p + 20(1-p) =5.52. \]
+    \[ E[X] = \sum_{i \in \Omega} p_iX_i = -15p + 20(1-p) =6.32. \]
 
-    Since our expected payout for this bet is $\$5.52$, we should take this bet if these rules represent all associated costs of participating. 
+    Since our expected payout for this bet is $\$6.32$, we should take this bet if these rules represent all associated costs of participating. 
 
     \item Suppose we are offered a second bet with a more complicated structure. In this case we’ll receive \$100 if the Republicans win a majority, \$50 if neither party wins a majority and we’ll have to pay \$200 if the Democrats win a majority. Should we take this bet?
 
@@ -224,11 +224,11 @@ Based on polling information, we think the appropriate value for $\theta$ is 0.5
     \end{cases} \]
     that is, \$100 if the Republicans win a majority with probability $p$, \$50 if neither party wins a majority with probability $q$, and -\$200 if the Democrats win a majority with probability $1-p-q$.
     Recall $p\approx 0.41$ from the previous question. Finding $q$, we have
-    \[ q=\Pr(K=2|\theta) = \binom{4}{\theta}\theta^2    (1-\theta)^{2}\approx 0.15.\]
+    \[ q=\Pr(K=2|\theta) = \binom{4}{2}\theta^2    (1-\theta)^{2}\approx 0.37.\]
     Computing the expected value of this bet to judge if we should take it, we have 
-    \[ E[X] = \sum_{i \in \Omega} p_iX_i = 100p+50q-200(1-p-q) = -37.75. \]
+    \[ E[X] = \sum_{i \in \Omega} p_iX_i = 100p+50q-200(1-p-q) = 9.17. \]
 
-    Since our expected payout for this bet is $-\$37.75$, we should not take this bet. 
+    Since our expected payout for this bet is $\$9.17$, we should take this bet if these rules represent all associated costs of participating. 
 \end{enumerate}
 
 \end{document}
