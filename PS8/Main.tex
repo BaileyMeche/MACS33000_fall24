@@ -22,7 +22,7 @@
 		Assignment 8: Discrete random variables\\
         MACSS 33000 1 \\
 		Due Friday, September 6 \\
-       Bailey Meche
+%       Bailey Meche
 	\end{center}
 
 \section{PMF vs CMF}
@@ -125,34 +125,110 @@ discovered that only 13.5 percent of the pages contain no typing errors.
 If we assume that the number of errors per page is a random variable with a Poisson distribution, find the
 percentage of pages with exactly one error.
 
-\textbf{Solution}
-
+\textbf{Solution.}
 \begin{align*}
-    \Pr(X=x; \lambda) &= e^{-\lambda}\frac{\lambda^x}{x!}
-    \\ \Pr(X=0;\lambda) &= e^{-\lambda}\frac{\lambda^0}{0!} &= 0.135
+    \Pr(X=x; \lambda) = e^{-\lambda}\frac{\lambda^x}{x!}
+    \\ \Pr(X=0;\lambda) = e^{-\lambda}\frac{\lambda^0}{0!} &= 0.135
+    \\  e^{-\lambda} &= 0.135
+    \\ \lambda &= -\log(0.135)\approx 0.87
+\end{align*}
+Now calculating the percentage of pages with exactly one error:
+\begin{align*}
+    \Pr(X=1;\lambda) &= e^{-\lambda}\lambda 
+    \\ &= -0.135\log(0.135)
+    \\ &\approx 0.12
 \end{align*}
 
+
 \section{Obtaining requests for information}
-X is a discrete random variable. It takes the value of the number of days required for a governmental agency to respond to a request for information. X is distributed according to the following PMF:6
-−4 4x
-f(x) = e x! for X ∈ {0,1,2...}
-a. Given this information, what is the probability of a response from the agency in 3 days or less?
+$X$ is a discrete random variable. It takes the value of the number of days required for a governmental agency to respond to a request for information. $X$ is distributed according to the following PMF:
+\[ f(x) = e^{-4} \frac{4^x}{x!} \text{ for } X\in\{0,1,2,...\} \]
+
+\begin{enumerate}
+    \item Given this information, what is the probability of a response from the agency in 3 days or less?
+
+    \textbf{Solution.}
+    Generating the cmf of this pmf, we have
+    \[ \Pr(X\leq x) = F_X(x) = e^{-\lambda} \sum_{x=0}^3 \frac{4^x}{x!} = e^{-4}\left[ 1+\frac{4}{1} +\frac{4^2}{2}+\frac{4^3}{6}\right]\approx0.43 \]
+    
+    \item What is the probability the agency response takes more than 10 but less than 13 days?
+
+    \textbf{Solution.}
+    \begin{align*}
+        F_X(12)-F_X(10) &= \sum_{x\in\{11,12\}}f(x)= e^{-4}\left[ \frac{4^{11}}{11!}+\frac{4^{12}}{12!}\right]\approx 0.0026
+    \end{align*}
+    \item What is the probability the agency response takes more than 5 days?
+    
+    \textbf{Solution.}
+    \[ 1-F_X(5) = 1-e^{-4}\left( 1+\frac{4}{1} +\frac{4^2}{2}+\frac{4^3}{6}+\frac{4^4}{4!}+\frac{4^5}{5!}\right)\approx0.21\]
+
+    \item Suppose using X you generate a new variable, Responsive. Responsive equals 1 if an agency responds in 5 days or less and 0 otherwise. What is the expected value of Responsive?
+    
+    \textbf{Solution.} Let $p$ be the probability an agency responds in 5 days or less. We may then specify the random variable $X$ as 
+    \[X\sim \text{bernoulli}(p) \text{ such that } X= \begin{cases}
+        0 & 1-p
+        \\ 1 & p
+    \end{cases}\]
+    where $p=F_X(5)\approx 0.79$. Calculating the expected value of the Bernoulli random variable, we have $E[X] = p \approx0.79$.
+    
+     \item What is the variance of Responsive?
+     
+     \textbf{Solution.} Taking the variance of a Bernoulli random variable, we have $Var[X] = p(1-p) \approx 0.17$.
+\end{enumerate}
 
 
 
-What is the probability the agency response takes more than 10 but less than 13 days?
-c. What is the probability the agency response takes more than 5 days?
-d. Suppose using X you generate a new variable, Responsive. Responsive equals 1 if an agency responds in 5 days or less and 0 otherwise. What is the expected value of Responsive?
-e. What is the variance of Responsive?
 
-Modeling electoral outcomes
-Suppose we’ve developed a model predicting the outcome of the upcoming midterm elections in a state with 4 Congressional districts. In each district there are two candidates, a Republican and a Democrat. We have reason to believe the following PMF describes the distribution of potential election results where K ∈ {0, 1, 2, 3, 4} and is the number of seats won by Republican candidates in the upcoming election.
-4 k 4−k Pr(K=k|θ)= k θ (1−θ)
-Based on polling information, we think the appropriate value for θ is 0.55.7
-a. What’s the expected number of seats Republicans will win in the upcoming election?
-a. Given this PMF, what’s the probability that no Republican legislators win in the upcoming election?
-b. What’s the probability that Republican legislators win a majority of the seats in this state?
+\section{Modeling electoral outcomes}
+Suppose we’ve developed a model predicting the outcome of the upcoming midterm elections in a state with 4 Congressional districts. In each district there are two candidates, a Republican and a Democrat. We have reason to believe the following PMF describes the distribution of potential election results where $K \in \{0, 1, 2, 3, 4\}$ and is the number of seats won by Republican candidates in the upcoming election.
+\[ \Pr(K=k | \theta) = \binom{4}{\theta}\theta^k    (1-\theta)^{4-k}\]
+Based on polling information, we think the appropriate value for $\theta$ is 0.55.7
 
-c. A prominent political pundit declares they are certain that Republicans will win a majority of seats in the next election and offers the following bet. If Republicans win a majority of the seats, we must pay the pundit \$15.00. If Republican’s fail to win a majority of states, we will win \$20.00. Based on our model, should we take this bet? Hint: Think of the betting outcomes as a random variable. Find the expected value of this random variable.
-d. Suppose we are offered a second bet with a more complicated structure. In this case we’ll receive \$100 if the Republicans win a majority, \$50 if neither party wins a majority and we’ll have to pay \$200 if the Democrats win a majority. Should we take this bet?
+\begin{enumerate}
+    \item What’s the expected number of seats Republicans will win in the upcoming election?
+
+    \textbf{Solution.} Using the expected value of Binomial distributed random variables, $E[K]=N\theta = 4(0.55)=2.2$.
+
+    \item Given this PMF, what’s the probability that no Republican legislators win in the upcoming election?
+
+    \textbf{Solution.}
+    \[ \Pr(K=0 | \theta) = \binom{4}{0.55}    (0.45)^{4} \approx 0.102. \]
+    
+    \item What’s the probability that Republican legislators win a majority of the seats in this state?
+
+    \textbf{Solution.} 
+    \begin{align*}
+         \Pr(\text{Republican majority}) &= F_K(4)-F_K(2) 
+         \\ &= \sum_{k\in\{3,4\}}\binom{4}{\theta}\theta^k    (1-\theta)^{4-k} 
+         \\ &= \binom{4}{\theta}\theta^3    (1-\theta) + \binom{4}{\theta}\theta^4 
+         \\ &\approx 0.41.
+    \end{align*}
+
+    \item  A prominent political pundit declares they are certain that Republicans will win a majority of seats in the next election and offers the following bet. If Republicans win a majority of the seats, we must pay the pundit \$15.00. If Republican’s fail to win a majority of states, we will win \$20.00. Based on our model, should we take this bet? Hint: Think of the betting outcomes as a random variable. Find the expected value of this random variable.
+
+    \textbf{Solution.} Let $X=\{-15,20\}$ be a binary random variable that is -15 if the Republicans win a majority of the seats with probability $p$, and 20 otherwise. 
+    To use $p$, we use question 3 where $p\approx 0.41$.
+    Computing the expected value of this bet to judge if we should take it, we have 
+    \[ E[X] = \sum_{i \in \Omega} p_iX_i = -15p + 20(1-p) =5.52. \]
+
+    Since our expected payout for this bet is $\$5.52$, we should take this bet if these rules represent all associated costs of participating. 
+
+    \item Suppose we are offered a second bet with a more complicated structure. In this case we’ll receive \$100 if the Republicans win a majority, \$50 if neither party wins a majority and we’ll have to pay \$200 if the Democrats win a majority. Should we take this bet?
+
+    \textbf{Solution.} Similarly, let $X$ be a random variable such that
+    \[ X = \begin{cases}
+        100 & p
+        \\ 50 & q
+        \\ -200 & 1-p-q
+        \\ 0    & \text{Otherwise}
+    \end{cases} \]
+    that is, \$100 if the Republicans win a majority with probability $p$, \$50 if neither party wins a majority with probability $q$, and -\$200 if the Democrats win a majority with probability $1-p-q$.
+    Recall $p\approx 0.41$ from the previous question. Finding $q$, we have
+    \[ q=\Pr(K=2|\theta) = \binom{4}{\theta}\theta^2    (1-\theta)^{2}\approx 0.15.\]
+    Computing the expected value of this bet to judge if we should take it, we have 
+    \[ E[X] = \sum_{i \in \Omega} p_iX_i = 100p+50q-200(1-p-q) = -37.75. \]
+
+    Since our expected payout for this bet is $-\$37.75$, we should not take this bet. 
+\end{enumerate}
+
 \end{document}
