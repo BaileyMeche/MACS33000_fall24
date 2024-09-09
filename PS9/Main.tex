@@ -1,0 +1,227 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+\begin{document}
+	\begin{center}
+		Assignment 9: General random variables\\
+        MACSS 33000 1 \\
+		Due Friday, September 9 \\
+     % Bailey Meche
+	\end{center}
+
+\section{Identifying the PDF}
+
+A recent college graduate is moving to Houston, Texas to take a new job, and is looking to purchase a home. Since Houston comprises a relatively large metropolitan area of about 7 million people, there are a lot of homes from which to choose. When searching for properties on the real estate websites, it is possible to select the price range of housing in which one is most interested. Suppose the potential buyer specifies a price range of 
+\$200,000 to \$250,000, and the result of the search returns thousands of homes with prices distributed uniformly throughout that range. Identify $E[X]$ and $\sigma$ of the probability density function associated with this random variable.
+
+\textbf{Solution.}
+Let $X \sim $ Uniform$(200,000,250,000)$ in dollars. Then, we have the associated PDF
+\[ f_X(x) = \begin{cases}
+    \frac{1}{50,000} & 200,000 \leq x \leq 250,000
+    \\ 0 & \text{Otherwise}
+\end{cases}\]
+Calculating $E[X]$ and $\sigma$: 
+\begin{align*}
+    E[X] &= \frac{1}{50,000} \int_{x_1}^{x_2} x dx \\ &= 225,000
+    \\ \sigma &= \sqrt{Var[X]} 
+    \\ &= \sqrt{\frac{(50,000)^2}{12}}
+    \\ &= \frac{25,000\sqrt{3}}{3}
+\end{align*}
+
+
+\section{Calculating ideal points}
+Suppose Bob is a voter living in the country of Freedonia, and suppose that in Freedonia, all sets of public policies can be thought of as representing points on a single axis (e.g. a line running from more liberal to more conservative). Bob has a certain set of public policies that he wants to see enacted. This is represented by point v, which we will call Bob’s ideal point. The utility, or happiness, that Bob receives from a set of policies at point l is $U(l) = -(l - v)^2$. In other words, Bob is happiest if the policies enacted are the ones at his ideal point, and he gets less and less happy as policies get farther away from his ideal point. When he votes, Bob will pick the candidate whose policies will make him happiest. However, Bob does not know exactly what policies each candidate will enact if elected – he has some guesses, but he can’t be certain. Each candidate’s future policies can therefore be represented by a continuous random variable $L$ with expected value $\mu_l$ and variance $Var[L]$
+\begin{enumerate}
+    \item Express $E(U(L))$ as a function of $\mu_l$, $Var(L)$, and $v$. Why might we say that Bob is risk averse – that is, that Bob gets less happy as outcomes get more uncertain?
+
+\textbf{Solution.} For the utility function $U(l) = -(l - v)^2$, we know $U(L) = -(L - v)^2$. To obtain $(L -\mu_l)^2$, note that we may perform the following substitution:
+\begin{align*}
+    -(L - v)^2  &= -(L - \mu_l + \mu_l -v)^2
+    \\ &= -[(L-\mu_l)^2 + 2(L-\mu_l)(\mu_l-v) + (\mu_L-v)^2].
+\end{align*}
+
+Now substituting $U(L)$ directly, we have
+\begin{align*}
+    E(U(L)) &= E[-(L-v)^2]
+    \\ &= E\left[-(L-\mu_l)^2 + 2(L-\mu_l)(\mu_l-v) + (\mu_L-v)^2\right]
+    \\ &= -\left[E[(L-\mu_l)^2] + 2E[(L-\mu_l)(\mu_l-v)] + E[(\mu_L-v)^2]\right]
+    \\ &= -\left[Var[L] + 2(0)(\mu_l-v) + (\mu_L-v)^2\right]
+    \\ &= -\left[Var[L] + (\mu_L-v)^2\right].
+\end{align*}
+Bob gets less happy as outcomes become more certain because the expected value of his utility is a function of the variance of the candidate's policies in addition to the mean of the policies and his ideal point. As the variance of a candidate's policies increases, his utility decreases on average; this is what classifies him as a risk-averse voter.
+
+    \item Suppose Bob is deciding whether to vote for one of two candidates: Dwight Schrute or Leslie Knope Suppose Bob’s ideal point is at 1, Schrute’s policies can be represented by a continuous random variable $L_S$ with expected value at 1 and variance equal to 6, and Knope’s policies can be represented by a continuous random variable $L_k$ with expected value at 3 and variance equal to 1. Which candidate would Bob vote for and why? What (perhaps surprising) effect of risk aversion on voting behavior does this example demonstrate?
+
+\textbf{Solution.} 
+Testing these candidates' qualities within Bob's utility function, we have the following outcomes on average. 
+\begin{align*}
+    \text{Schrute:} && E[U(L_s)]&= -\left[Var[L_s] + (\mu_{L_s}-v)^2\right]
+    \\ && &= -\left[(6) + ((1)-(1))^2\right]
+    \\ && &= -6
+    \\ \text{Knope:} && E[U(L_k)]&= -\left[Var[L_k] + (\mu_{L_k}-v)^2\right]
+    \\ && &= -\left[(1) + ((3)-(1))^2\right]
+    \\ && &= -5
+\end{align*}
+
+These calculations show that, on average, Bob will vote for Knope since the distribution of her policies provide a higher (less negative) utility to Bob, \emph{ceteris paribus}. This is surprising since Knope's average policy is farther away from Bob's ideal point than Schrute's; but, since Knope's policies provide a lower variance than that of Schrute, her policies provide a higher utility overall than Schrute.
+
+\end{enumerate}
+
+
+\section{Parliamentary elections}
+After an election in a parliamentary system, a government (consisting of a prime minister and a cabinet) is formed by gathering the support of a majority of newly elected members of parliament. Typically a government is allowed to remain in power for a certain number of years before new elections must be called. However, elections can be held earlier if the Parliament passes a vote of no confidence or the prime minster decides to dissolve the government. Suppose we are studying Country Z (which uses a parliamentary system) and we are interested in the duration of governments. In Country Z, governments must call elections at least every 5 years, but they could be called sooner if there is a vote of no confidence or the prime minister dissolves the government. Let the continuous random variable X denote the amount of time (measured in years) between the last election and the calling of the next election. X has support on all real numbers between 0 and 5. Suppose we know that X has the probability density function
+\[f(x) = \begin{cases}
+    kx^3 & 0<x<5 
+    \\ 0 & \text{Otherwise}
+\end{cases}\]
+where k is some constant.
+
+\begin{enumerate}
+    \item Find $k$
+
+    \textbf{Solution.} 
+    \begin{align*}
+        1 &= \int_0^5 f_X(x)dx 
+        \\ &= k\int_0^5 x^3dx
+        \\ &= k \frac{5^4}{4}
+        \\ \frac{4}{625} &= k
+    \end{align*}
+
+    \item Find the CDF of $X$
+
+    \textbf{Solution.} 
+    \[ F_X(x) = \int_{-\infty}^x f_X(x) dx = k\int_0^x x^3dx = \frac{k}{4}x^4 = \frac{1}{625}x^4\]
+
+    \item Find $EX]$ and $Var[X]$
+
+    \textbf{Solution.}
+    \begin{align*}
+        E[X] &= \int_0^5 xf_X(x)dx 
+        \\ &= k\int_0^5 x^4 dx 
+        \\ &= \frac{4}{5^4 \cdot 5}x^5 \bigg|_0^5 
+        \\ &= 4
+        \\ Var[X] &= E[X^2] - E[X]^2 
+        \\ &= \int_0^5 x^2 \cdot kx^3 dx - 16 
+        \\ &= \frac{4}{5^4\cdot 6}x^6 \bigg|_0^5 -16
+        \\ &= \frac{2}{3}
+    \end{align*}
+
+    \item Find the median of $X$
+
+    \textbf{Solution.}
+    \begin{align*}
+        \frac{1}{5^4}x^4 &= \frac{1}{2}
+        \\ x &= \frac{5\cdot 2^{\frac{1}{4}}}{2} \approx 2.97
+    \end{align*}
+
+    \item What is the probability that the government remains in power for exactly 3 years? Why?
+    
+        \textbf{Solution.}
+        \[ \Pr(X=3) = f_X(3) = k(3)^3 = \frac{108}{625} \approx 17\%\]
+        The PDF evaluated at this value (3 years) returns the probability of the random variable $X$ being exactly this $x=3$.
+
+    \item What is the probability that the government remains in power between 2 and 4 years?
+    
+    \textbf{Solution.}
+    \[ F_X(4) - F_X(2) = \frac{1}{625}(4^4 - 2^4) = 38.4\% \]
+
+    \item What is the probability that the government remains in power for less than 1 year or more than 4 years?
+
+    \textbf{Solution.}
+    \[ (1- F_X(4)) + F_X(1) = (1-\frac{4^4}{625}) + \frac{1}{625} = 59.2\%\]
+\end{enumerate}
+
+
+\section{Calculating the CDF}
+Z is distributed according to the following PDF
+\[f(z) = \begin{cases}
+    \gamma \exp{-\gamma z} & 0 \leq z
+    \\ 0 & \text{Otherwise}
+\end{cases}\]
+
+\begin{enumerate}
+    \item  What is $F(z)$, the CDF of this distribution?
+    
+    \textbf{Solution.}
+    \[ F_Z(z) = \int_0^Z \gamma e^{-\gamma z} dz = -e^{- \gamma z} \bigg|_0^z = 1-e^{- \gamma z}\]
+
+    \item  Using your answer to the previous question, evaluate the CDF for the interval from 7 to 12.
+
+    \textbf{Solution.}
+    \[ F_Z(12)-F_Z(7) = \left( 1- e^{-12\gamma}\right) - \left( 1- e^{-7\gamma}\right) =  e^{-7\gamma}- e^{-12\gamma}\]
+
+    \item  Suppose $\gamma$ is 3. Given this, what is q, the 10th percentile value of Z?
+
+    \textbf{Solution.}
+
+    \begin{align*}
+        \Pr(Z \leq z) &= 0.1
+        \\ 1-e^{- 3 z} &= 0.1
+        \\ z &= -\frac{1}{3}\log(0.9)
+        \\ &\approx 3.5
+    \end{align*}
+
+    \item  We observe a single random draw from Z, what is the probability this observation is less than .5? Again suppose that $\gamma$ = 3.
+
+    \textbf{Solution.}
+    First, we find the value $z$ at which the probability of observing $Z=z$ is 0.5
+    \begin{align*}
+        f_Z(z) &= 0.5
+        \\ 3e^{-3z} &= 0.5
+        \\ z &= - \frac{1}{3}\log(\frac{1}{6})=z_0
+    \end{align*}    
+    We denote this value $z_0$. All values of $Z$ less than 0.5 are found at $Z > z_0$. Now, we find the probability that our observation is in this range:
+    \begin{align*}
+        \Pr(Z > z_0) &= 1-F_X(z_0)
+        \\ &= 1-e^{-3z_0}
+        \\ &= \frac{5}{6}
+        \\ &\approx 83.3\%
+        \end{align*}
+\end{enumerate}
+
+
+
+\section{Working with normal random variables}
+Let X and Y be normal random variables with means 0 and 1, respectively, and variances 1 and 4, respectively.
+\begin{enumerate}
+    \item Find $\Pr(X \leq 1.5)$ and $\Pr(X \leq -1)$
+
+    \textbf{Solution.}
+    \begin{align*}
+        \Pr(X \leq 1.5) &= F_X(1.5) 
+        \\ &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{1.5} \exp{-\frac{z^2}{2}}dz
+        \\ \Pr(x \leq -1)&= F_X(-1) 
+                \\ &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{-1} \exp{-\frac{z^2}{2}}dz
+    \end{align*}
+    
+
+    \item Find the PDF of $(Y-1)/2$
+
+        \textbf{Solution.}
+    WLOG, let $Y = aW+b$ for $W \sim N(0,1)$. This implies that $a,b = 2,1$. Now, let $Z=(Y-1)/2$. Expressing $Z$ in terms of $W$, we have
+    \begin{align*}
+        Z &= \frac{Y-1}{2}
+        \\ &= \frac{(2W+1)-1}{2}
+        \\ &= W
+        \\ Z &\sim N(0,1).
+    \end{align*}
+    So, the PDF for $Z=(Y-1)/2$ is given by 
+    \[  f(z) = \frac{1}{\sqrt{2}\pi}\exp{-\frac{z^2}{2}}.\]
+\end{enumerate}
+\end{document}
