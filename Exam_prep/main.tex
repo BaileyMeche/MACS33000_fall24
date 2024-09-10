@@ -1,0 +1,1267 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+\begin{document}
+	\begin{center}
+		Math Camp Study Questions\\
+        MACSS 33000 \\
+		Due September 13 \\
+     % Bailey Meche
+	\end{center}
+
+
+\section{Linear equations, notation, sets, and functions}
+
+\subsection{Applied (short answer): Solve for \( x \) in the equation \( 6x^2 - 12x = 0 \).}
+
+\textbf{Solution:} 
+Factor the equation:
+\[
+6x(x - 2) = 0
+\]
+The solutions are \( x = 0 \) and \( x = 2 \).
+
+\subsection{Applied (long answer): Solve the system of equations using substitution.}
+\[
+3x - 2y = 18 \quad \text{(1)}
+\]
+\[
+5x + 10y = -10 \quad \text{(2)}
+\]
+
+\textbf{Solution:} 
+From equation (2), solve for \( x \) in terms of \( y \):
+\[
+x + 2y = -2 \quad \Rightarrow \quad x = -2y - 2
+\]
+Substitute this into equation (1):
+\[
+3(-2y - 2) - 2y = 18
+\]
+\[
+-6y - 6 - 2y = 18 \quad \Rightarrow \quad -8y = 24 \quad \Rightarrow \quad y = -3
+\]
+Substitute \( y = -3 \) into \( x = -2y - 2 \):
+\[
+x = 4
+\]
+Thus, \( x = 4, y = -3 \).
+
+\subsection{6. Applied (long answer): Find the roots of the equation \( 9x^2 - 3x - 12 = 0 \).}
+
+\textbf{Solution:} 
+First, factor the equation:
+\[
+9x^2 - 3x - 12 = 0
+\]
+\[
+3(3x^2 - x - 4) = 0
+\]
+Factoring further:
+\[
+(3x - 4)(x + 1) = 0
+\]
+The solutions are:
+\[
+x = \frac{4}{3}, -1
+\]
+
+\subsection{Theoretical (short answer): Define a bijective function.}
+
+\subsection{Answer:} A bijective function is a function that is both injective (one-to-one) and surjective (onto), meaning every element in the domain maps to a unique element in the codomain, and every element of the codomain is mapped to by some element of the domain.
+
+\subsection{Applied (short answer): Simplify the expression \( (2a^2)(4a^4) \).}
+
+\subsection{Solution:}
+\[
+(2a^2)(4a^4) = 8a^6
+\]
+
+\subsection{Theoretical (long answer): Explain the difference between a function being injective and surjective with examples.}
+
+\subsection{Answer:} 
+A function is injective (one-to-one) if no two different elements in the domain map to the same element in the codomain. For example, \( f(x) = 2x \) is injective. A function is surjective (onto) if every element of the codomain is the image of at least one element from the domain. For example, \( f(x) = x^3 \) from \( \mathbb{R} \to \mathbb{R} \) is surjective.
+
+\subsection{10. Applied (long answer): Solve the set equation \( (A \cup B) \cap C \), where}
+\[
+A = \{2, 3, 7, 9, 13, 16\}, B = \{4, 5, 6, 7, 8\}, C = \{2, 3, 5, 7, 13\}
+\]
+
+\subsection{Solution:}
+First, find \( A \cup B \):
+\[
+A \cup B = \{2, 3, 4, 5, 6, 7, 8, 9, 13, 16\}
+\]
+Now, find \( (A \cup B) \cap C \):
+\[
+(A \cup B) \cap C = \{2, 3, 5, 7, 13\}
+\]
+
+
+\subsection{Applied (long answer)}
+\\
+\textbf{Category: Word Problem (system of equations)} 
+
+A coffee shop sells two types of coffee blends. Blend A costs \$5 per pound, and Blend B costs \$8 per pound. The shop owner wants to make 100 pounds of a mixture that sells for \$6.50 per pound. How many pounds of each blend should be used?
+
+\textbf{Solution:}
+Let \( x \) be the pounds of Blend A, and \( y \) be the pounds of Blend B. We can set up the following system of equations:
+\[
+x + y = 100 \quad \text{(the total weight of the mixture)}
+\]
+\[
+5x + 8y = 6.50 \times 100 \quad \text{(the total cost of the mixture)}
+\]
+\[
+5x + 8y = 650
+\]
+Solve the system of equations:
+From the first equation, solve for \( x \):
+\[
+x = 100 - y
+\]
+Substitute this into the second equation:
+\[
+5(100 - y) + 8y = 650
+\]
+\[
+500 - 5y + 8y = 650
+\]
+\[
+3y = 150
+\]
+\[
+y = 50
+\]
+Substitute \( y = 50 \) into \( x = 100 - y \):
+\[
+x = 100 - 50 = 50
+\]
+Thus, 50 pounds of Blend A and 50 pounds of Blend B should be used.
+
+\vspace{1cm}
+
+\subsection{Applied (long answer)}
+\\
+\textbf{Category: Word Problem (system of equations)} 
+
+A theater sold 500 tickets for a play. Adult tickets cost \$20 each, and child tickets cost \$12 each. The total revenue from ticket sales was \$7,600. How many adult tickets and child tickets were sold?
+
+\textbf{Solution:}
+Let \( a \) be the number of adult tickets sold, and \( c \) be the number of child tickets sold. We can set up the following system of equations:
+\[
+a + c = 500 \quad \text{(total number of tickets sold)}
+\]
+\[
+20a + 12c = 7600 \quad \text{(total revenue from ticket sales)}
+\]
+Solve the system of equations:
+From the first equation, solve for \( a \):
+\[
+a = 500 - c
+\]
+Substitute this into the second equation:
+\[
+20(500 - c) + 12c = 7600
+\]
+\[
+10000 - 20c + 12c = 7600
+\]
+\[
+-8c = -2400
+\]
+\[
+c = 300
+\]
+Substitute \( c = 300 \) into \( a = 500 - c \):
+\[
+a = 500 - 300 = 200
+\]
+Thus, 200 adult tickets and 300 child tickets were sold
+
+
+\section{Logarithms, sequences, and limits }
+\subsection{Theoretical (short answer): Define an arithmetic sequence.}
+
+\textbf{Answer:} An arithmetic sequence is a sequence in which the difference between consecutive terms is constant. The general form is \( u_n = a + (n-1)d \), where \( a \) is the first term and \( d \) is the common difference.
+
+\subsection{Theoretical (short answer): What is a geometric sequence?}
+
+\textbf{Answer:} A geometric sequence is a sequence where each term after the first is found by multiplying the previous term by a constant called the common ratio. The general form is \( u_n = ar^{n-1} \), where \( a \) is the first term and \( r \) is the common ratio.
+
+\subsection{Theoretical (long answer): Explain whether the sequence \( u_n = n3^n \) is arithmetic, geometric, or neither.}
+
+\textbf{Answer:} The sequence \( u_n = n3^n \) is neither arithmetic nor geometric. It doesn't have a constant difference between consecutive terms (as required for arithmetic) and the ratio between consecutive terms is not constant (as required for geometric sequences).
+
+\subsection{Applied (long answer): Find the limit of the sequence \( u_n = \left( \frac{1}{2} \right)^n \) as \( n \to \infty \).}
+
+\textbf{Solution:}
+\[
+\lim_{n \to \infty} \left( \frac{1}{2} \right)^n = 0
+\]
+As \( n \) increases, the term \( \left( \frac{1}{2} \right)^n \) approaches 0. Hence, the limit of the sequence is 0.
+
+\subsection{Applied (short answer): Does the sequence \( u_n = 1 + \frac{1}{2n} \) tend to a limit as \( n \to \infty \)? If yes, what is the limit?}
+
+\textbf{Solution:}
+\[
+\lim_{n \to \infty} \left( 1 + \frac{1}{2n} \right) = 1
+\]
+As \( n \) increases, \( \frac{1}{2n} \) approaches 0. Therefore, the sequence tends to 1.
+
+\subsection{Applied (long answer): Find the limit of the sequence \( a_n = \frac{3 + 5n^2}{n + n^2} \) as \( n \to \infty \).}
+
+\textbf{Solution:}
+\[
+\lim_{n \to \infty} \frac{3 + 5n^2}{n + n^2} = \lim_{n \to \infty} \frac{n^2 \left( \frac{3}{n^2} + 5 \right)}{n^2 \left( \frac{1}{n} + 1 \right)} = \frac{5}{1} = 5
+\]
+Thus, the limit is 5.
+
+\subsection{Theoretical (long answer): Explain why the sequence \( a_n = (-1)^{n-1} \frac{n}{n^2+1} \) converges to 0.}
+
+\textbf{Answer:} The alternating term \( (-1)^{n-1} \) does not affect the limit since its magnitude is always 1. As \( n \to \infty \), the dominant term in the denominator \( n^2 + 1 \) grows much faster than the numerator \( n \), so the fraction \( \frac{n}{n^2 + 1} \) tends to 0. Therefore, the entire sequence converges to 0.
+
+\subsection{Applied (long answer): Solve for the limit \( \lim_{x \to -4} \frac{x^2 + 5x + 4}{x^2 + 3x - 4} \).}
+
+\textbf{Solution:}
+Factor the numerator and denominator:
+\[
+\frac{(x+4)(x+1)}{(x+4)(x-1)}
+\]
+Cancel the common factor \( (x+4) \):
+\[
+\lim_{x \to -4} \frac{x+1}{x-1} = \frac{-4+1}{-4-1} = \frac{-3}{-5} = \frac{3}{5}
+\]
+Thus, the limit is \( \frac{3}{5} \).
+
+
+\section{Differentiation}
+
+\subsection{Theoretical / Definition (short answer): State the definition of a critical point.}
+\textbf{Answer:} A critical point of a function \( f(x) \) is a point \( x = c \) where \( f'(c) = 0 \) or \( f'(c) \) does not exist.
+
+\subsection{Applied (short answer): Find the critical points of \( f(x) = x^3 - 3x^2 \).}
+\textbf{Solution:}
+\[
+f'(x) = 3x^2 - 6x
+\]
+Set \( f'(x) = 0 \):
+\[
+3x^2 - 6x = 0 \Rightarrow 3x(x - 2) = 0
+\]
+Thus, the critical points are \( x = 0 \) and \( x = 2 \).
+
+\subsection{Applied (long answer): Determine whether the critical points of \( f(x) = x^3 - 3x^2 \) are local minima, maxima, or neither.}
+\textbf{Solution:}
+The second derivative is:
+\[
+f''(x) = 6x - 6
+\]
+Evaluate at the critical points:
+\[
+f''(0) = 6(0) - 6 = -6 \quad (\text{local maximum at } x = 0)
+\]
+\[
+f''(2) = 6(2) - 6 = 6 \quad (\text{local minimum at } x = 2)
+\]
+Thus, \( x = 0 \) is a local maximum and \( x = 2 \) is a local minimum.
+
+\subsection{Theoretical / Definition (long answer): What is the Mean Value Theorem and how is it applied?}
+\textbf{Answer:} The Mean Value Theorem states that if a function \( f(x) \) is continuous on the closed interval \([a, b]\) and differentiable on the open interval \((a, b)\), then there exists at least one point \( c \in (a, b) \) such that:
+\[
+f'(c) = \frac{f(b) - f(a)}{b - a}
+\]
+This theorem guarantees the existence of a point where the instantaneous rate of change (derivative) equals the average rate of change over the interval.
+
+\subsection{Applied (long answer): Find the absolute minimum and maximum of \( f(x) = 3x^2 - 12x + 5 \) on the interval \( [0, 3] \).}
+\textbf{Solution:}
+First, find the critical points by setting \( f'(x) = 0 \):
+\[
+f'(x) = 6x - 12
+\]
+\[
+6x - 12 = 0 \Rightarrow x = 2
+\]
+Now evaluate \( f(x) \) at the critical point and the endpoints:
+\[
+f(0) = 3(0)^2 - 12(0) + 5 = 5
+\]
+\[
+f(2) = 3(2)^2 - 12(2) + 5 = -7
+\]
+\[
+f(3) = 3(3)^2 - 12(3) + 5 = 5
+\]
+Thus, the absolute minimum is \( f(2) = -7 \), and the absolute maximum is \( f(0) = f(3) = 5 \).
+
+\subsection{Theoretical (short answer): Define the concept of concavity and explain how it is related to the second derivative.}
+\textbf{Answer:} A function is concave up on an interval if its second derivative \( f''(x) > 0 \) for all \( x \) in the interval, and concave down if \( f''(x) < 0 \). Concavity describes the direction in which the function curves.
+
+\subsection{Applied (long answer): Use Newton's method to approximate the root of \( f(x) = x^3 - 6x + 4 = 0 \) starting with \( x_0 = 2 \).}
+\textbf{Solution:}
+Newton's method formula:
+\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+First, compute \( f'(x) \):
+\[
+f'(x) = 3x^2 - 6
+\]
+Start with \( x_0 = 2 \):
+\[
+f(2) = 2^3 - 6(2) + 4 = 0
+\]
+Since \( f(2) = 0 \), the approximation is already exact. The root is \( x = 2 \).
+
+\subsection{Applied (short answer): Find the critical points of \( f(x) = x\ln(x) \) and classify them.}
+\textbf{Solution:}
+First, find the derivative:
+\[
+f'(x) = \ln(x) + 1
+\]
+Set \( f'(x) = 0 \):
+\[
+\ln(x) + 1 = 0 \Rightarrow \ln(x) = -1 \Rightarrow x = \frac{1}{e}
+\]
+The critical point is \( x = \frac{1}{e} \). To classify it, find the second derivative:
+\[
+f''(x) = \frac{1}{x}
+\]
+Since \( f''\left(\frac{1}{e}\right) > 0 \), \( x = \frac{1}{e} \) is a local minimum.
+
+\subsection{Applied (long answer): Verify that \( f(x) = x^5 + x^3 + x + 1 \) has no local extrema.}
+\textbf{Solution:}
+First, find the derivative:
+\[
+f'(x) = 5x^4 + 3x^2 + 1
+\]
+Set \( f'(x) = 0 \):
+\[
+5x^4 + 3x^2 + 1 = 0
+\]
+This equation has no real solutions since \( 5x^4 + 3x^2 + 1 > 0 \) for all \( x \in \mathbb{R} \). Thus, there are no critical points, and \( f(x) \) has no local extrema.
+
+
+\section{Critical points and approximation}
+
+
+\subsection{Theoretical / Definition (long answer): Explain how to determine if a critical point is a local minimum, maximum, or a saddle point.}
+\textbf{Answer:} To classify a critical point \( x = c \), we use the second derivative test:
+- If \( f''(c) > 0 \), then \( f(x) \) has a local minimum at \( c \).
+- If \( f''(c) < 0 \), then \( f(x) \) has a local maximum at \( c \).
+- If \( f''(c) = 0 \), the test is inconclusive, and the point could be a saddle point or a higher-order critical point.
+
+\subsection{Applied (long answer): Find the local extrema of \( f(x) = x^4 - 4x^3 + 4x^2 \).}
+\textbf{Solution:}
+First, find the derivative:
+\[
+f'(x) = 4x^3 - 12x^2 + 8x
+\]
+Set \( f'(x) = 0 \):
+\[
+4x(x^2 - 3x + 2) = 0
+\]
+\[
+4x(x - 1)(x - 2) = 0
+\]
+The critical points are \( x = 0 \), \( x = 1 \), and \( x = 2 \).
+
+Next, find the second derivative:
+\[
+f''(x) = 12x^2 - 24x + 8
+\]
+Evaluate \( f''(x) \) at the critical points:
+\[
+f''(0) = 8 \quad (\text{local minimum at } x = 0)
+\]
+\[
+f''(1) = -4 \quad (\text{local maximum at } x = 1)
+\]
+\[
+f''(2) = 8 \quad (\text{local minimum at } x = 2)
+\]
+Thus, there is a local maximum at \( x = 1 \), and local minima at \( x = 0 \) and \( x = 2 \).
+
+\subsection{Theoretical / Definition (short answer): What does it mean for a set of vectors to be linearly independent?}
+\textbf{Answer:} A set of vectors \( \{v_1, v_2, \dots, v_n\} \) is linearly independent if the only solution to \( c_1 v_1 + c_2 v_2 + \dots + c_n v_n = 0 \) is \( c_1 = c_2 = \dots = c_n = 0 \).
+
+\subsection{Applied (short answer): Are the vectors \( v_1 = [1, 2] \), \( v_2 = [2, 4] \) linearly independent?}
+\textbf{Solution:}
+The vectors are multiples of each other:
+\[
+v_2 = 2v_1
+\]
+Thus, the vectors are linearly dependent.
+
+\subsection{Applied (long answer): Find the determinant of the following matrix and determine if it is invertible.}
+\[
+A = \begin{bmatrix} 3 & 1 & 2 \\ 2 & 4 & 1 \\ 1 & 2 & 3 \end{bmatrix}
+\]
+\textbf{Solution:}
+The determinant of \( A \) is:
+\[
+\text{det}(A) = 3 \begin{vmatrix} 4 & 1 \\ 2 & 3 \end{vmatrix} - 1 \begin{vmatrix} 2 & 1 \\ 1 & 3 \end{vmatrix} + 2 \begin{vmatrix} 2 & 4 \\ 1 & 2 \end{vmatrix}
+\]
+\[
+= 3(4(3) - 1(2)) - 1(2(3) - 1(1)) + 2(2(2) - 4(1))
+\]
+\[
+= 3(12 - 2) - 1(6 - 1) + 2(4 - 4)
+\]
+\[
+= 3(10) - 1(5) + 2(0) = 30 - 5 = 25
+\]
+Since the determinant is non-zero, \( A \) is invertible.
+
+\subsection{Theoretical / Definition (long answer): What is the relationship between a matrix being invertible and its determinant?}
+\textbf{Answer:} A matrix is invertible if and only if its determinant is non-zero. If the determinant is zero, the matrix is singular and not invertible.
+
+\subsection{Applied (short answer): Find the length of the vector \( v = (3, 4, 5) \).}
+\textbf{Solution:}
+The length (magnitude) of the vector is:
+\[
+||v|| = \sqrt{3^2 + 4^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2}
+\]
+
+\subsection{Applied (long answer): Solve the following system of linear equations using matrix inversion.}
+\[
+\begin{aligned}
+x + y + z &= 6 \\
+2x - y + 3z &= 14 \\
+3x + 4y - z &= 10
+\end{aligned}
+\]
+\textbf{Solution:}
+First, write the system as a matrix equation:
+\[
+A \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 6 \\ 14 \\ 10 \end{bmatrix}
+\]
+where
+\[
+A = \begin{bmatrix} 1 & 1 & 1 \\ 2 & -1 & 3 \\ 3 & 4 & -1 \end{bmatrix}
+\]
+Use the Gauss-Jordan elimination method to find
+\[\begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 4 \\ 0 \\ 2 \end{bmatrix}.\]
+
+\section{Matrix algebra}
+
+
+\subsection{Applied (short answer): Is the matrix \( A = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 3 & 2 \\ 0 & 0 & 5 \end{bmatrix} \) upper or lower triangular?}
+\textbf{Solution:} The matrix has non-zero entries only on or above the diagonal, so it is an \textbf{upper triangular} matrix.
+
+\subsection{Applied (short answer): Find the submatrix formed by deleting the second row and second column of the matrix}
+\[
+A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}
+\]
+\textbf{Solution:} Deleting the second row and second column gives the submatrix:
+\[
+\begin{bmatrix} 1 & 3 \\ 7 & 9 \end{bmatrix}
+\]
+
+\subsection{Applied (long answer): Find the inverse of the upper triangular matrix \( A = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 3 & 2 \\ 0 & 0 & 4 \end{bmatrix} \).}
+\textbf{Solution:}
+To find the inverse of the upper triangular matrix \( A \), use the following steps:
+
+1. Start with the matrix equation \( A A^{-1} = I \), where \( I \) is the identity matrix.
+2. Begin by finding the inverse using the properties of triangular matrices.
+
+Since \( A \) is upper triangular, the inverse will also be upper triangular. We compute it manually or using matrix inversion techniques, resulting in:
+\[
+A^{-1} = \begin{bmatrix} \frac{1}{2} & -\frac{1}{6} & 0 \\ 0 & \frac{1}{3} & -\frac{1}{6} \\ 0 & 0 & \frac{1}{4} \end{bmatrix}
+\]
+
+\subsection{Theoretical / Definition (short answer): What is cosine similarity?}
+\textbf{Answer:} Cosine similarity is a measure of similarity between two vectors, defined as the cosine of the angle between them. It is computed using the formula:
+\[
+\text{Cosine similarity} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}
+\]
+where \( \mathbf{u} \cdot \mathbf{v} \) is the dot product of the vectors and \( \|\mathbf{u}\| \), \( \|\mathbf{v}\| \) are the magnitudes of the vectors.
+
+\subsection{Applied (long answer): Calculate the cosine similarity between the vectors \( \mathbf{u} = (1, 2, 3) \) and \( \mathbf{v} = (4, 5, 6) \).}
+\textbf{Solution:}
+First, compute the dot product:
+\[
+\mathbf{u} \cdot \mathbf{v} = 1(4) + 2(5) + 3(6) = 4 + 10 + 18 = 32
+\]
+Next, find the magnitudes of \( \mathbf{u} \) and \( \mathbf{v} \):
+\[
+\|\mathbf{u}\| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{1 + 4 + 9} = \sqrt{14}
+\]
+\[
+\|\mathbf{v}\| = \sqrt{4^2 + 5^2 + 6^2} = \sqrt{16 + 25 + 36} = \sqrt{77}
+\]
+Now, compute the cosine similarity:
+\[
+\text{Cosine similarity} = \frac{32}{\sqrt{14} \times \sqrt{77}} = \frac{32}{\sqrt{1078}} \approx 0.973
+\]
+
+\subsection{Applied (long answer): Solve for \( x \) in the following matrix equation:}
+\[
+\begin{bmatrix} 3 & 0 \\ 1 & 2 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 6 \\ 5 \end{bmatrix}
+\]
+\textbf{Solution:}
+The matrix equation can be written as:
+\[
+3x_1 = 6 \quad \text{and} \quad x_1 + 2x_2 = 5
+\]
+Solving the first equation:
+\[
+x_1 = \frac{6}{3} = 2
+\]
+Substitute \( x_1 = 2 \) into the second equation:
+\[
+2 + 2x_2 = 5 \quad \Rightarrow \quad 2x_2 = 3 \quad \Rightarrow \quad x_2 = \frac{3}{2}
+\]
+Thus, \( x_1 = 2 \) and \( x_2 = \frac{3}{2} \).
+
+
+\subsection{Theoretical / Definition (short answer): What is a submatrix?}
+\textbf{Answer:} A submatrix is a matrix formed by deleting one or more rows and/or columns from a larger matrix.
+
+
+\section{Optimization with several variables }
+
+\subsection{Theoretical / Definition (short answer): Define the gradient of a function.}
+\textbf{Answer:} The gradient of a function \( f(x_1, x_2, \dots, x_n) \), denoted by \( \nabla f \), is the vector of its first partial derivatives:
+\[
+\nabla f = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right)
+\]
+
+\subsection{Applied (short answer): Find the gradient of \( f(x, y) = 2x^2 + 3y^2 \) and evaluate it at the point \( (1, -2) \).}
+\textbf{Solution:}
+First, compute the partial derivatives:
+\[
+\frac{\partial f}{\partial x} = 4x, \quad \frac{\partial f}{\partial y} = 6y
+\]
+Thus, the gradient is:
+\[
+\nabla f(x, y) = (4x, 6y)
+\]
+At \( (1, -2) \):
+\[
+\nabla f(1, -2) = (4(1), 6(-2)) = (4, -12)
+\]
+
+\subsection{Applied (long answer): Find the Hessian matrix for the function \( f(x, y) = x^3 + 3xy + y^2 \).}
+\textbf{Solution:}
+First, compute the second-order partial derivatives:
+\[
+\frac{\partial^2 f}{\partial x^2} = 6x, \quad \frac{\partial^2 f}{\partial x \partial y} = 3, \quad \frac{\partial^2 f}{\partial y^2} = 2
+\]
+The Hessian matrix is:
+\[
+H_f(x, y) = \begin{bmatrix} 6x & 3 \\ 3 & 2 \end{bmatrix}
+\]
+
+\subsection{Theoretical / Definition (long answer): Explain how to classify critical points using the Hessian matrix.}
+\textbf{Answer:} To classify critical points using the Hessian matrix:
+\begin{enumerate}
+    \item  Compute the Hessian matrix \( H_f \) at the critical point.
+    \item  Compute the determinant \( \det(H_f) \):
+   \begin{enumerate}
+       \item If \( \det(H_f) > 0 \) and \( \frac{\partial^2 f}{\partial x^2} > 0 \), the point is a local minimum.
+        \item If \( \det(H_f) > 0 \) and \( \frac{\partial^2 f}{\partial x^2} < 0 \), the point is a local maximum.
+        \item  If \( \det(H_f) < 0 \), the point is a saddle point.
+    \item  If \( \det(H_f) = 0 \), the test is inconclusive.
+   \end{enumerate} 
+\end{enumerate}
+
+\subsection{Applied (long answer): Find the critical points of \( f(x, y) = x^4 + y^4 - 4xy + 2 \), and classify them using the Hessian.}
+\textbf{Solution:}
+First, compute the gradient:
+\[
+\nabla f(x, y) = \left( 4x^3 - 4y, 4y^3 - 4x \right)
+\]
+Set the gradient equal to zero:
+\[
+4x^3 - 4y = 0 \quad \Rightarrow \quad x^3 = y
+\]
+\[
+4y^3 - 4x = 0 \quad \Rightarrow \quad y^3 = x
+\]
+Thus, \( x = y \). Substitute into either equation to get:
+\[
+x^3 = x \quad \Rightarrow \quad x(x^2 - 1) = 0
+\]
+So \( x = 0, 1, -1 \). Therefore, the critical points are \( (0, 0) \), \( (1, 1) \), and \( (-1, -1) \).
+
+Next, compute the Hessian:
+\[
+H_f(x, y) = \begin{bmatrix} 12x^2 & -4 \\ -4 & 12y^2 \end{bmatrix}
+\]
+At \( (0, 0) \):
+\[
+H_f(0, 0) = \begin{bmatrix} 0 & -4 \\ -4 & 0 \end{bmatrix}, \quad \det(H_f(0, 0)) = -16 \quad (\text{saddle point})
+\]
+At \( (1, 1) \) and \( (-1, -1) \):
+\[
+H_f(1, 1) = H_f(-1, -1) = \begin{bmatrix} 12 & -4 \\ -4 & 12 \end{bmatrix}, \quad \det(H_f(1, 1)) = 128 \quad (\text{local minimum})
+\]
+
+\subsection{Applied (short answer): Compute the first partial derivatives of \( f(x, y, z) = x^2y + yz^2 \).}
+\textbf{Solution:}
+\[
+\frac{\partial f}{\partial x} = 2xy, \quad \frac{\partial f}{\partial y} = x^2 + z^2, \quad \frac{\partial f}{\partial z} = 2yz
+\]
+
+\subsection{Applied (long answer): Find the gradient of \( f(x, y, z) = x^2 + y^2 + z^2 \) and evaluate it at the point \( (1, -1, 2) \).}
+\textbf{Solution:}
+First, compute the gradient:
+\[
+\nabla f(x, y, z) = (2x, 2y, 2z)
+\]
+At \( (1, -1, 2) \):
+\[
+\nabla f(1, -1, 2) = (2(1), 2(-1), 2(2)) = (2, -2, 4)
+\]
+
+
+
+\section{Integration and integral calculus}
+
+
+\subsection{Theoretical / Definition (short answer): What is an improper integral?}
+\textbf{Answer:} An improper integral is an integral where either the limits of integration are infinite, or the integrand has an infinite discontinuity within the interval of integration.
+
+
+
+\subsection{Applied (long answer): Compute the definite integral \( \int_1^4 \frac{1}{x} \, dx \).}
+\textbf{Solution:}
+The antiderivative of \( \frac{1}{x} \) is \( \ln|x| \). Therefore:
+\[
+\int_1^4 \frac{1}{x} \, dx = \left[ \ln|x| \right]_1^4 = \ln(4) - \ln(1) = \ln(4)
+\]
+Since \( \ln(1) = 0 \), the final answer is \( \ln(4) \).
+
+\subsection{Applied (short answer): Compute the indefinite integral \( \int (2x - 3) \, dx \).}
+\textbf{Solution:}
+The antiderivative is:
+\[
+\int (2x - 3) \, dx = x^2 - 3x + C
+\]
+where \( C \) is the constant of integration.
+
+\subsection{Applied (long answer): Determine whether the improper integral \( \int_1^\infty \frac{1}{x^2} \, dx \) converges or diverges, and if it converges, find its value.}
+\textbf{Solution:}
+The antiderivative of \( \frac{1}{x^2} \) is \( -\frac{1}{x} \). Therefore:
+\[
+\int_1^\infty \frac{1}{x^2} \, dx = \lim_{b \to \infty} \left[ -\frac{1}{x} \right]_1^b = \lim_{b \to \infty} \left( -\frac{1}{b} + 1 \right) = 1
+\]
+Thus, the integral converges to 1.
+
+\subsection{Applied (long answer): Evaluate the double integral \( \int_0^1 \int_0^2 (3x + 2y) \, dx \, dy \).}
+\textbf{Solution:}
+First, compute the inner integral:
+\[
+\int_0^2 (3x + 2y) \, dx = \left[ \frac{3x^2}{2} + 2yx \right]_0^2 = \frac{12}{2} + 4y = 6 + 4y
+\]
+Now, integrate with respect to \( y \):
+\[
+\int_0^1 (6 + 4y) \, dy = \left[ 6y + 2y^2 \right]_0^1 = 6(1) + 2(1^2) = 6 + 2 = 8
+\]
+Thus, the value of the double integral is 8.
+
+\subsection{Applied (long answer): Compute the indefinite integral \( \int x e^{x^2} \, dx \) using substitution.}
+\textbf{Solution:}
+Let \( u = x^2 \), so that \( du = 2x \, dx \). Therefore:
+\[
+\int x e^{x^2} \, dx = \frac{1}{2} \int e^u \, du = \frac{1}{2} e^u + C
+\]
+Substitute back \( u = x^2 \):
+\[
+\int x e^{x^2} \, dx = \frac{1}{2} e^{x^2} + C
+\]
+
+\section{Sample space and probability}
+
+
+
+\subsection{Theoretical / Definition (short answer): State the three axioms of probability.}
+
+\textbf{Answer:}
+\begin{enumerate}
+    \item  Non-negativity: For any event \( A \), \( P(A) \geq 0 \).
+    \item  Normalization: The probability of the sample space is 1, i.e., \( P(S) = 1 \).
+    \item  Additivity: For any two mutually exclusive events \( A \) and \( B \), \( P(A \cup B) = P(A) + P(B) \).
+
+\end{enumerate}
+\subsection{Applied (short answer): A fair six-sided die is rolled once. What is the probability of rolling a number greater than 4?}
+
+\textbf{Solution:}
+The possible outcomes are \( \{1, 2, 3, 4, 5, 6\} \). The favorable outcomes are \( \{5, 6\} \).
+
+Probability:
+\[
+P(\text{rolling a number} > 4) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}} = \frac{2}{6} = \frac{1}{3}
+\]
+
+\subsection{Applied (long answer): In a deck of 52 playing cards, what is the probability of drawing an ace or a heart?}
+
+\textbf{Solution:}
+Number of aces: 4
+
+Number of hearts: 13
+
+Number of aces that are hearts: 1
+
+Using the inclusion-exclusion principle:
+\[
+P(\text{Ace or Heart}) = P(\text{Ace}) + P(\text{Heart}) - P(\text{Ace and Heart}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13}
+\]
+
+\subsection{Theoretical / Definition (short answer): Define independent events in probability.}
+
+\textbf{Answer:} Two events \( A \) and \( B \) are independent if the occurrence of one does not affect the probability of the occurrence of the other. Mathematically, \( P(A \cap B) = P(A) P(B) \).
+
+\subsection{Applied (long answer): A box contains 5 red balls and 7 blue balls. Two balls are drawn at random without replacement. What is the probability that both balls are red?}
+
+\textbf{Solution:}
+First draw:
+\[
+P(\text{Red on first draw}) = \frac{5}{12}
+\]
+Second draw (without replacement):
+\[
+P(\text{Red on second draw} | \text{Red on first draw}) = \frac{4}{11}
+\]
+Combined probability:
+\[
+P(\text{Both red}) = \frac{5}{12} \times \frac{4}{11} = \frac{20}{132} = \frac{5}{33}
+\]
+
+\subsection{Applied (short answer): If \( P(A) = 0.6 \), \( P(B) = 0.5 \), and \( P(A \cap B) = 0.3 \), find \( P(A \cup B) \).}
+
+\textbf{Solution:}
+Using the formula:
+\[
+P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.6 + 0.5 - 0.3 = 0.8
+\]
+
+\subsection{Applied (long answer): A coin is biased such that the probability of heads is \( \frac{2}{3} \). If the coin is tossed three times, what is the probability of getting exactly two heads?}
+
+\textbf{Solution:}
+Number of ways to get exactly two heads in three tosses: 3
+
+Probability of two heads and one tail:
+\[
+P = \binom{3}{2} \left( \frac{2}{3} \right)^2 \left( \frac{1}{3} \right)^1 = 3 \times \frac{4}{9} \times \frac{1}{3} = \frac{4}{9}
+\]
+
+\subsection{Theoretical / Definition (short answer): What is conditional probability and how is it calculated?}
+
+\textbf{Answer:} Conditional probability is the probability of an event \( A \) occurring given that another event \( B \) has occurred. It is calculated using:
+\[
+P(A | B) = \frac{P(A \cap B)}{P(B)}
+\]
+provided \( P(B) > 0 \).
+
+\subsection{Applied (long answer): Given events \( A \) and \( B \) with \( P(A) = 0.4 \), \( P(B) = 0.5 \), and \( P(A | B) = 0.6 \), find \( P(B | A) \).}
+
+\textbf{Solution:}
+First, find \( P(A \cap B) \):
+\[
+P(A \cap B) = P(A | B) P(B) = 0.6 \times 0.5 = 0.3
+\]
+Then, compute \( P(B | A) \):
+\[
+P(B | A) = \frac{P(A \cap B)}{P(A)} = \frac{0.3}{0.4} = 0.75
+\]
+
+\subsection{Applied (long answer): There are three boxes}
+
+\begin{itemize}
+    \item Box 1 contains 2 gold coins.
+    \item Box 2 contains 1 gold and 1 silver coin.
+    \item Box 3 contains 2 silver coins.
+\end{itemize}
+
+A box is chosen at random, and then a coin is randomly drawn from that box. If the coin is gold, what is the probability that it came from Box 1?
+
+\textbf{Solution:}
+Let \( G \) be the event that a gold coin is drawn, and \( B1 \) be the event that Box 1 is chosen.
+
+First, compute \( P(B1) = \frac{1}{3} \).
+
+Compute \( P(G | B1) = 1 \) (since both coins are gold in Box 1).
+
+Compute \( P(G | B2) = \frac{1}{2} \) (one gold coin out of two).
+
+Compute \( P(G | B3) = 0 \) (no gold coins in Box 3).
+
+Total probability of drawing a gold coin:
+\[
+P(G) = P(B1) P(G | B1) + P(B2) P(G | B2) + P(B3) P(G | B3) = \frac{1}{3} \times 1 + \frac{1}{3} \times \frac{1}{2} + \frac{1}{3} \times 0 = \frac{1}{3} + \frac{1}{6} = \frac{1}{2}
+\]
+Now, compute \( P(B1 | G) \) using Bayes' theorem:
+\[
+P(B1 | G) = \frac{P(B1) P(G | B1)}{P(G)} = \frac{\frac{1}{3} \times 1}{\frac{1}{2}} = \frac{\frac{1}{3}}{\frac{1}{2}} = \frac{2}{3}
+\]
+
+
+\section{Discrete random variables}
+
+\subsection{Applied (short answer): Consider a discrete random variable \( X \) with the following PMF:}
+\[
+P(X = 0) = 0.2, \quad P(X = 1) = 0.5, \quad P(X = 2) = 0.3
+\]
+What is the cumulative distribution function \( F(x) \)?
+
+\textbf{Solution:} 
+\[
+F(x) = 
+\begin{cases} 
+0 & \text{if } x < 0 \\
+0.2 & \text{if } 0 \leq x < 1 \\
+0.7 & \text{if } 1 \leq x < 2 \\
+1 & \text{if } x \geq 2
+\end{cases}
+\]
+
+\subsection{Applied (long answer): A coin is biased such that the probability of heads is \( p = 0.7 \). If the coin is tossed 5 times, what is the probability of getting exactly 3 heads?}
+
+\textbf{Solution:}
+This is a binomial probability problem where \( n = 5 \) and \( p = 0.7 \). The probability of getting exactly 3 heads is:
+\[
+P(X = 3) = \binom{5}{3} (0.7)^3 (0.3)^2 = \frac{5!}{3!(5-3)!} (0.7)^3 (0.3)^2
+\]
+\[
+= 10 \times (0.343) \times (0.09) = 10 \times 0.03087 = 0.3087
+\]
+Thus, the probability is \( 0.3087 \).
+
+\subsection{Theoretical / Definition (short answer): What is the expected value of a discrete random variable?}
+
+\textbf{Answer:} The expected value \( E[X] \) of a discrete random variable \( X \) is the weighted average of all possible values of \( X \), given by:
+\[
+E[X] = \sum_x x P(X = x)
+\]
+
+\subsection{Applied (long answer): A discrete random variable \( X \) has the following PMF:}
+\[
+P(X = 0) = 0.1, \quad P(X = 1) = 0.2, \quad P(X = 2) = 0.3, \quad P(X = 3) = 0.4
+\]
+Find the variance of \( X \).
+
+\textbf{Solution:}
+First, compute the expected value \( E[X] \):
+\[
+E[X] = 0(0.1) + 1(0.2) + 2(0.3) + 3(0.4) = 0 + 0.2 + 0.6 + 1.2 = 2
+\]
+Next, compute \( E[X^2] \):
+\[
+E[X^2] = 0^2(0.1) + 1^2(0.2) + 2^2(0.3) + 3^2(0.4) = 0 + 0.2 + 1.2 + 3.6 = 5
+\]
+Now, compute the variance:
+\[
+\text{Var}(X) = E[X^2] - (E[X])^2 = 5 - 2^2 = 5 - 4 = 1
+\]
+Thus, the variance of \( X \) is 1.
+
+\subsection{Applied (long answer): The average number of customer arrivals at a store per hour is 3. What is the probability that exactly 2 customers arrive in a given hour?}
+
+\textbf{Solution:}
+This is a Poisson distribution problem with \( \lambda = 3 \). The probability of exactly 2 arrivals is:
+\[
+P(X = 2) = \frac{e^{-3} 3^2}{2!} = \frac{e^{-3} \times 9}{2} = \frac{9e^{-3}}{2}
+\]
+Using \( e^{-3} \approx 0.0498 \):
+\[
+P(X = 2) = \frac{9 \times 0.0498}{2} \approx \frac{0.4482}{2} = 0.2241
+\]
+Thus, the probability is \( 0.2241 \).
+
+\subsection{Distribution Interpretation (long answer): You roll a fair six-sided die 10 times. Let \( X \) be the number of times you roll a 6. Identify the type of distribution that \( X \) follows and compute the probability that you roll exactly 3 sixes.}
+
+\textbf{Solution:}  
+The random variable \( X \) is binomially distributed, as there are 10 independent trials (rolling the die) with two possible outcomes (rolling a 6 or not). The probability of success (rolling a 6) is \( p = \frac{1}{6} \). Therefore, \( X \sim \text{Binomial}(n = 10, p = \frac{1}{6}) \).
+
+The probability of rolling exactly 3 sixes is:
+\[
+P(X = 3) = \binom{10}{3} \left(\frac{1}{6}\right)^3 \left(\frac{5}{6}\right)^7
+\]
+\[
+= \frac{10!}{3!(10-3)!} \left(\frac{1}{6}\right)^3 \left(\frac{5}{6}\right)^7
+\]
+\[
+= 120 \times \frac{1}{216} \times \frac{78125}{279936} \approx 0.155
+\]
+Thus, the probability of rolling exactly 3 sixes is approximately \( 0.155 \).
+
+\subsection{Distribution Interpretation (long answer): A call center receives an average of 10 calls per hour. Let \( X \) represent the number of calls received in a 30-minute period. Identify the type of distribution for \( X \), and find the probability that the center receives exactly 3 calls in 30 minutes.}
+
+\textbf{Solution:}  
+The random variable \( X \) follows a Poisson distribution because the number of calls received is modeled as a Poisson process, where events (calls) occur independently over a continuous interval. The rate of calls per hour is 10, so the rate for 30 minutes is \( \lambda = 5 \).
+
+Thus, \( X \sim \text{Poisson}(\lambda = 5) \), and the probability of receiving exactly 3 calls is:
+\[
+P(X = 3) = \frac{e^{-5} 5^3}{3!} = \frac{e^{-5} \times 125}{6}
+\]
+Using \( e^{-5} \approx 0.0067 \):
+\[
+P(X = 3) = \frac{0.0067 \times 125}{6} \approx 0.14
+\]
+Thus, the probability of receiving exactly 3 calls is approximately \( 0.14 \).
+
+\subsection{Distribution Interpretation (long answer): A factory produces light bulbs with a 2\% defect rate. Let \( X \) be the number of defective light bulbs in a batch of 100 bulbs. Identify the type of distribution for \( X \), and find the probability that exactly 5 bulbs are defective.}
+
+\textbf{Solution:}  
+The random variable \( X \) follows a binomial distribution, as there are 100 independent trials (light bulbs) with two possible outcomes (defective or not defective). The probability of a defective bulb is \( p = 0.02 \).
+
+Thus, \( X \sim \text{Binomial}(n = 100, p = 0.02) \), and the probability of finding exactly 5 defective bulbs is:
+\[
+P(X = 5) = \binom{100}{5} (0.02)^5 (0.98)^{95}
+\]
+\[
+= \frac{100!}{5!(100-5)!} (0.02)^5 (0.98)^{95}
+\]
+This can be calculated numerically to get approximately \( P(X = 5) \approx 0.18 \).
+
+\subsection{Betting Question (long answer): A lottery offers the following bet: You can buy a ticket for \$10. If your ticket wins, you receive \$1000; otherwise, you lose your \$10. The probability of winning the lottery is 0.001. Should you take this bet? Calculate the expected value.}
+
+\textbf{Solution:}  
+Let \( X \) be the random variable representing your net gain or loss from the bet. The possible outcomes are:
+- Winning: Net gain of \$990 (since you spent \$10 and won \$1000).
+- Losing: Net loss of \$10.
+
+The expected value of the bet is calculated as:
+\[
+E[X] = (0.001)(990) + (0.999)(-10)
+\]
+\[
+E[X] = 0.99 - 9.99 = -9
+\]
+The expected value is \( -9 \), which means that, on average, you lose \$9 for every bet. Therefore, you should not take this bet.
+
+
+
+\section{General random variables}
+
+
+\subsection{Theoretical / Definition (short answer): What is the cumulative distribution function (CDF) of a continuous random variable?}
+
+\textbf{Answer:} The cumulative distribution function (CDF), denoted \( F(x) \), gives the probability that a continuous random variable \( X \) is less than or equal to \( x \), i.e., \( F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) \, dt \), where \( f(t) \) is the PDF.
+
+\subsection{Applied (short answer): Let \( X \sim U(0, 5) \). Compute the expected value \( E[X] \) and the variance \( \text{Var}(X) \).}
+
+\textbf{Solution:}  
+For a uniform distribution \( X \sim U(a, b) \), the expected value and variance are given by:
+\[
+E[X] = \frac{a + b}{2}, \quad \text{Var}(X) = \frac{(b - a)^2}{12}
+\]
+Substituting \( a = 0 \) and \( b = 5 \):
+\[
+E[X] = \frac{0 + 5}{2} = 2.5, \quad \text{Var}(X) = \frac{(5 - 0)^2}{12} = \frac{25}{12}
+\]
+
+\subsection{Applied (long answer): The random variable \( X \) has the following PDF:}
+\[
+f_X(x) = 
+\begin{cases}
+kx^3 & 0 \leq x \leq 5 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+1. Find the value of \( k \).  
+2. Compute the CDF \( F_X(x) \).  
+3. Compute \( E[X] \).  
+
+\textbf{Solution:}  
+1. To find \( k \), use the fact that the total probability must equal 1:
+\[
+\int_0^5 kx^3 \, dx = 1 \quad \Rightarrow \quad \frac{kx^4}{4} \Bigg|_0^5 = 1
+\]
+\[
+\frac{k \times 625}{4} = 1 \quad \Rightarrow \quad k = \frac{4}{625}
+\]
+
+2. The CDF is obtained by integrating the PDF:
+\[
+F_X(x) = \int_0^x \frac{4}{625} t^3 \, dt = \frac{4}{625} \times \frac{x^4}{4} = \frac{x^4}{625}
+\]
+Thus, \( F_X(x) = \frac{x^4}{625} \) for \( 0 \leq x \leq 5 \).
+
+3. The expected value is:
+\[
+E[X] = \int_0^5 x \cdot \frac{4}{625} x^3 \, dx = \frac{4}{625} \int_0^5 x^4 \, dx = \frac{4}{625} \times \frac{x^5}{5} \Bigg|_0^5 = \frac{4 \times 3125}{3125} = 4
+\]
+
+
+\subsection{Applied (short answer): A random variable \( X \) has the PDF \( f_X(x) = \frac{1}{10} \) for \( 0 \leq x \leq 10 \). What is the probability that \( X \) is less than 4?}
+
+\textbf{Solution:}  
+The CDF is obtained by integrating the PDF:
+\[
+P(X < 4) = \int_0^4 \frac{1}{10} \, dx = \frac{4}{10} = 0.4
+\]
+Thus, the probability is \( 0.4 \).
+
+\subsection{Applied (long answer): A random variable \( X \) has the following PDF:}
+\[
+f_X(x) = \lambda e^{-\lambda x} \quad \text{for } x \geq 0
+\]
+Let \( \lambda = 2 \). Find the CDF \( F_X(x) \), the expected value \( E[X] \), and the variance \( \text{Var}(X) \).
+
+\textbf{Solution:}  
+1. The CDF is the integral of the PDF:
+\[
+F_X(x) = \int_0^x 2e^{-2t} \, dt = 1 - e^{-2x}
+\]
+Thus, \( F_X(x) = 1 - e^{-2x} \).
+
+2. The expected value of an exponential distribution is:
+\[
+E[X] = \frac{1}{\lambda} = \frac{1}{2}
+\]
+
+3. The variance of an exponential distribution is:
+\[
+\text{Var}(X) = \frac{1}{\lambda^2} = \frac{1}{4}
+\]
+
+\subsection{Applied (short answer): The lifetime of a machine follows an exponential distribution with mean 5 years. What is the probability that the machine lasts more than 3 years?}
+
+\textbf{Solution:}  
+Let \( X \) be the lifetime of the machine. The exponential distribution has \( \lambda = \frac{1}{5} \), so:
+\[
+P(X > 3) = 1 - F_X(3) = 1 - (1 - e^{-\frac{3}{5}}) = e^{-\frac{3}{5}} \approx 0.5488
+\]
+Thus, the probability is approximately \( 0.5488 \).
+
+\subsection{Applied (long answer): The random variable \( X \) has the following PDF:}
+\[
+f_X(x) = 
+\begin{cases}
+\frac{1}{25}x & 0 \leq x \leq 5 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+1. Find the CDF of \( X \).  
+2. Compute \( E[X] \).  
+3. Compute the median of \( X \).
+
+\textbf{Solution:}  
+1. The CDF is the integral of the PDF:
+\[
+F_X(x) = \int_0^x \frac{1}{25} t \, dt = \frac{1}{50} x^2 \quad \text{for } 0 \leq x \leq 5
+\]
+
+2. The expected value is:
+\[
+E[X] = \int_0^5 x \cdot \frac{1}{25} x \, dx = \frac{1}{25} \int_0^5 x^2 \, dx = \frac{1}{25} \times \frac{x^3}{3} \Bigg|_0^5 = \frac{1}{25} \times \frac{125}{3} = \frac{5}{3}
+\]
+
+3. The median \( m \) is the value where \( F_X(m) = 0.5 \):
+\[
+\frac{1}{50} m^2 = 0.5 \quad \Rightarrow \quad m^2 = 25 \quad \Rightarrow \quad m = 5
+\]
+Thus, the median is 5.
+
+
+
+\section{Multivariate distributions}
+
+\subsection{Applied (short answer): Find the marginal PDF \( f_X(x) \) for the joint PDF given by}
+\[
+f_{X,Y}(x, y) = 6x^2 y \quad \text{for } 0 \leq x \leq y \leq 1.
+\]
+
+\textbf{Solution:} The marginal PDF \( f_X(x) \) is obtained by integrating the joint PDF over \( y \):
+\[
+f_X(x) = \int_x^1 6x^2 y \, dy = 6x^2 \left( \frac{y^2}{2} \right) \Bigg|_x^1 = 6x^2 \left( \frac{1}{2} - \frac{x^2}{2} \right) = 3x^2 (1 - x^2).
+\]
+
+\subsection{Applied (short answer): Find the conditional PDF \( f_{X|Y}(x|y) \) for the joint PDF}
+\[
+f_{X,Y}(x, y) = k x^2 y^3 \quad \text{for } 0 < x, y < 6.
+\]
+
+\textbf{Solution:} The conditional PDF \( f_{X|Y}(x|y) \) is given by:
+\[
+f_{X|Y}(x|y) = \frac{f_{X,Y}(x, y)}{f_Y(y)} = \frac{k x^2 y^3}{f_Y(y)}.
+\]
+To find \( f_Y(y) \), integrate \( f_{X,Y}(x, y) \) over \( x \):
+\[
+f_Y(y) = \int_0^6 k x^2 y^3 \, dx = k y^3 \int_0^6 x^2 \, dx = k y^3 \times \frac{6^3}{3} = 72k y^3.
+\]
+Thus,
+\[
+f_{X|Y}(x|y) = \frac{x^2}{72}.
+\]
+
+\subsection{Theoretical / Definition (short answer): What is the covariance between two random variables \( X \) and \( Y \)?}
+
+\textbf{Answer:} The covariance between two random variables \( X \) and \( Y \), denoted \( \text{Cov}(X, Y) \), measures the degree to which \( X \) and \( Y \) change together. It is defined as:
+\[
+\text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y].
+\]
+
+\subsection{Applied (long answer): Given the joint PDF}
+\[
+f_{X,Y}(x, y) = \frac{1}{8} (2x + y) \quad \text{for } 0 \leq x \leq 2, \, 0 \leq y \leq 2,
+\]
+find the marginal PDFs \( f_X(x) \) and \( f_Y(y) \), and compute \( E[X] \) and \( E[Y] \).
+
+\textbf{Solution:}
+1. The marginal PDF \( f_X(x) \) is:
+\[
+f_X(x) = \int_0^2 \frac{1}{8} (2x + y) \, dy = \frac{1}{8} \left( 2x \times 2 + \frac{y^2}{2} \Bigg|_0^2 \right) = \frac{1}{8} (4x + 2) = \frac{1}{2} (x + \frac{1}{2}).
+\]
+2. The marginal PDF \( f_Y(y) \) is:
+\[
+f_Y(y) = \int_0^2 \frac{1}{8} (2x + y) \, dx = \frac{1}{8} \left( 2x^2 \Bigg|_0^2 + y \times 2 \right) = \frac{1}{8} (8 + 2y) = \frac{1}{2} (1 + \frac{y}{4}).
+\]
+3. To compute \( E[X] \), use the marginal PDF \( f_X(x) \):
+\[
+E[X] = \int_0^2 x \cdot \frac{1}{2} (x + \frac{1}{2}) \, dx = \frac{1}{2} \left( \int_0^2 x^2 \, dx + \frac{1}{2} \int_0^2 x \, dx \right) = 1.33.
+\]
+4. To compute \( E[Y] \), use the marginal PDF \( f_Y(y) \):
+\[
+E[Y] = \int_0^2 y \cdot \frac{1}{2} (1 + \frac{y}{4}) \, dy = 1.17.
+\]
+
+\subsection{Applied (long answer): Find the covariance \( \text{Cov}(X, Y) \) for the joint PDF}
+\[
+f_{X,Y}(x, y) = c (x + y) \quad \text{for } 0 \leq x, y \leq 1.
+\]
+Also, determine whether \( X \) and \( Y \) are independent.
+
+\textbf{Solution:}
+1. To find \( c \), integrate over the support to get the total probability:
+\[
+\int_0^1 \int_0^1 c (x + y) \, dx \, dy = 1.
+\]
+Thus,
+\[
+c \times \left( \frac{x^2}{2} + yx \Bigg|_0^1 \right) = 1 \quad \Rightarrow \quad c = 2.
+\]
+2. The covariance is given by:
+\[
+\text{Cov}(X, Y) = E[XY] - E[X]E[Y].
+\]
+Compute \( E[XY] \), \( E[X] \), and \( E[Y] \) from the marginal PDFs. After computing these, you will find that \( \text{Cov}(X, Y) = 0 \), which suggests that \( X \) and \( Y \) are uncorrelated, but they are not necessarily independent.
+
+\subsection{Theoretical / Definition (short answer): When are two continuous random variables independent?}
+
+\textbf{Answer:} Two continuous random variables \( X \) and \( Y \) are independent if their joint PDF \( f_{X,Y}(x, y) \) factors into the product of their marginal PDFs, i.e., \( f_{X,Y}(x, y) = f_X(x) f_Y(y) \).
+
+\subsection{Applied (long answer): For the joint PDF given by}
+\[
+f_{X,Y}(x, y) = k x^2 y^3 \quad \text{for } 0 \leq x, y \leq 1,
+\]
+find \( k \), the marginal PDFs, and check if \( X \) and \( Y \) are independent.
+
+\textbf{Solution:}
+1. To find \( k \), integrate the joint PDF over the entire range:
+\[
+\int_0^1 \int_0^1 k x^2 y^3 \, dx \, dy = 1 \quad \Rightarrow \quad k = 20.
+\]
+2. The marginal PDFs are:
+\[
+f_X(x) = \int_0^1 20 x^2 y^3 \, dy = 5x^2, \quad f_Y(y) = \int_0^1 20 x^2 y^3 \, dx = 4y^3.
+\]
+3. Since \( f_{X,Y}(x, y) \neq f_X(x) f_Y(y) \), \( X \) and \( Y \) are not independent.
+
+
+\section{Classical statistical inference}
+\subsection{Theoretical / Definition (short answer): What is an unbiased estimator?}
+
+\textbf{Answer:} An estimator \( \hat{\theta} \) of a parameter \( \theta \) is unbiased if \( E[\hat{\theta}] = \theta \), meaning the expected value of the estimator is equal to the true value of the parameter.
+
+\subsection{Applied (short answer): A sample of 200 people is surveyed, and 120 people say they support a new policy. Estimate the population proportion of supporters and compute the standard error.}
+
+\textbf{Solution:}  
+The point estimate for the population proportion \( \hat{p} \) is:
+\[
+\hat{p} = \frac{120}{200} = 0.6
+\]
+The standard error for the proportion is:
+\[
+\text{SE}(\hat{p}) = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = \sqrt{\frac{0.6(0.4)}{200}} = 0.03464
+\]
+
+\subsection{Applied (long answer): A sample of 100 undergraduates had a mean GPA of 3.2 with a standard deviation of 0.5. Construct a 95\% confidence interval for the population mean GPA and interpret it in context.}
+
+\textbf{Solution:}  
+The 95\% confidence interval is given by:
+\[
+\text{CI} = \bar{x} \pm z^* \frac{s}{\sqrt{n}}
+\]
+Using \( z^* = 1.96 \), the confidence interval is:
+\[
+\text{CI} = 3.2 \pm 1.96 \times \frac{0.5}{\sqrt{100}} = 3.2 \pm 0.098
+\]
+Thus, the 95\% confidence interval is \( [3.102, 3.298] \). We are 95\% confident that the true population mean GPA lies between 3.102 and 3.298.
+
+\subsection{Applied (long answer): Consider a random sample \( X_1, X_2, \dots, X_n \) from a Poisson distribution with parameter \( \lambda \). Let the estimator for \( \lambda \) be \( \hat{\lambda} = \frac{1}{n} \sum_{i=1}^{n} X_i \). Find the bias, variance, and MSE of \( \hat{\lambda} \).}
+
+\textbf{Solution:}  
+1. Bias:  
+The estimator \( \hat{\lambda} \) is unbiased because:
+\[
+E[\hat{\lambda}] = E\left[ \frac{1}{n} \sum_{i=1}^{n} X_i \right] = \frac{1}{n} \sum_{i=1}^{n} E[X_i] = \lambda.
+\]
+Thus, \( \text{Bias}(\hat{\lambda}) = 0 \).
+
+2. Variance:
+\[
+\text{Var}(\hat{\lambda}) = \text{Var}\left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) = \frac{1}{n^2} \sum_{i=1}^{n} \text{Var}(X_i) = \frac{\lambda}{n}.
+\]
+
+3. MSE:
+Since the estimator is unbiased, \( \text{MSE}(\hat{\lambda}) = \text{Var}(\hat{\lambda}) = \frac{\lambda}{n} \).
+
+\subsection{Applied (short answer): A survey of 500 people finds that 65\% favor a particular law. Conduct a hypothesis test to determine if the proportion of the population that supports the law is significantly different from 60\%, using \( \alpha = 0.05 \).}
+
+\textbf{Solution:}  
+Null hypothesis \( H_0: p = 0.6 \), alternative hypothesis \( H_A: p \neq 0.6 \).
+
+The test statistic is:
+\[
+z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1 - p_0)}{n}}} = \frac{0.65 - 0.6}{\sqrt{\frac{0.6(0.4)}{500}}} = \frac{0.05}{0.02191} = 2.28.
+\]
+At \( \alpha = 0.05 \), the critical value for a two-sided test is \( z^* = 1.96 \). Since \( |z| = 2.28 > 1.96 \), we reject the null hypothesis. There is sufficient evidence to conclude that the proportion is significantly different from 60\%.
+
+\subsection{Applied (long answer): A random sample of 50 students had an average number of exclusive relationships of 3.2, with a standard deviation of 1.97. Use this sample to estimate the population mean with a 90\% confidence interval.}
+
+\textbf{Solution:}  
+The 90\% confidence interval is given by:
+\[
+\text{CI} = \bar{x} \pm t^* \frac{s}{\sqrt{n}}
+\]
+Using \( t^* \) for 49 degrees of freedom and 90\% confidence (\( t^* \approx 1.676 \)):
+\[
+\text{CI} = 3.2 \pm 1.676 \times \frac{1.97}{\sqrt{50}} = 3.2 \pm 0.468
+\]
+Thus, the 90\% confidence interval is \( [2.732, 3.668] \). We are 90\% confident that the true mean number of exclusive relationships lies between 2.732 and 3.668.
+
+
+\subsection{Applied (long answer): Data on the hours of sleep for 25 New Yorkers reveal a mean of 7.73 hours with a standard deviation of 0.77 hours. Test the hypothesis that New Yorkers sleep less than 8 hours on average, using \( \alpha = 0.05 \).}
+
+\textbf{Solution:}  
+1. Hypotheses:  
+\( H_0: \mu = 8 \), \( H_A: \mu < 8 \).
+
+2. Test statistic:
+\[
+t = \frac{\bar{x} - \mu_0}{\frac{s}{\sqrt{n}}} = \frac{7.73 - 8}{\frac{0.77}{\sqrt{25}}} = \frac{-0.27}{0.154} = -1.75
+\]
+With 24 degrees of freedom, the critical value at \( \alpha = 0.05 \) for a one-sided test is \( t^* = -1.711 \). Since \( t = -1.75 < -1.711 \), we reject \( H_0 \). There is sufficient evidence that New Yorkers sleep less than 8 hours on average.
+
+
+ \end{document}
