@@ -190,8 +190,8 @@ Suppose the following
     \begin{align*}
         Cov(D,F) &= E[(D-E[D])(F-E[F])]
         \\ &= E[(D-10)(F-4)]
-        \\ &= E[DF] - 10E[F]- 4E[D]+14 
-        \\ &= -58
+        \\ &= E[DF] - 10E[F]- 4E[D]+40
+        \\ &= -32
     \end{align*}
 
     \item What is the correlation between $D$ and $F$?
@@ -199,8 +199,8 @@ Suppose the following
     \textbf{Solution.}
     \begin{align*}
         Corr(D,F) &= \frac{Cov(D,F)}{\sqrt{Var(D)Var(F)}}
-        \\ &= \frac{-58}{\sqrt{(60)(60)}}
-        \\ &= -\frac{29}{30}
+        \\ &= \frac{-32}{\sqrt{(60)(60)}}
+        \\ &= -\frac{8}{15}
     \end{align*}
 
     \item Suppose you multiplied $F$ by 2 to generate a new variable $H$. What is $Cov(D,H)$
@@ -210,7 +210,7 @@ Suppose the following
         Cov(D,H) &= E[(D-E[D])(2F-2E[F])]
         \\ &= E[(D-10)(2)(F-4)]
         \\ &= 2(E[DF] - 10E[F]- 4E[D]+14)
-        \\ &= -116
+        \\ &= -64
         \\ &= 2Cov(D,F)
     \end{align*}
 
@@ -219,8 +219,8 @@ Suppose the following
     \textbf{Solution.} Since $Cov(D,H)=2Cov(D,F)$ and $Var(aX)=a^2Var(X)$ for any $a,X$, we have:
     \begin{align*}
         Corr(D,H) &= \frac{2Cov(D,F)}{\sqrt{Var(D)(4)Var(F)}}
-        \\ &= \frac{-58(2)}{\sqrt{(60)(4)(60)}}
-        \\ &= -\frac{29}{30}
+        \\ &= \frac{-32(2)}{\sqrt{(60)(4)(60)}}
+        \\ &= -\frac{8}{15}
         \\ &= Corr(D,F)
     \end{align*}
 
@@ -229,8 +229,8 @@ Suppose the following
     \textbf{Solution.}
     \begin{align*}
         Corr(D,F) &= \frac{Cov(D,F)}{\sqrt{Var(D)Var(F)}}
-        \\ &= \frac{-58}{\sqrt{(30)(60)}}
-        \\ &= -\frac{29\sqrt{2}}{30}
+        \\ &= \frac{-32}{\sqrt{(30)(60)}}
+        \\ &= -\frac{8\sqrt{2}}{15}
     \end{align*}
     
 \end{enumerate}
