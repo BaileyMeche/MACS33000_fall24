@@ -1,0 +1,251 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, graphicx, caption}
+\usepackage{amsthm}
+\usepackage{amsfonts, xcolor, physics}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc} % for \symbol{92} 
+\usepackage{comment}
+
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1.75in}
+\newcommand{\contra}{$\rightarrow\leftarrow$}
+\newcommand{\tb}{  \textbackslash  }
+\newcommand{\bj}{\ \Longleftrightarrow \ }
+
+\begin{document}
+	\begin{center}
+		Assignment 10: Multivariate distribution\\
+        MACSS 33000 1 \\
+		Due Friday, September 10 \\
+     % Bailey Meche
+	\end{center}
+
+\section{Calculating the conditional PDF}
+Let $f(x,y)=15x^2y$ for $0\leq x\leq y\leq 1$. Find $f(x|y)$.
+
+\textbf{Solution.}
+\begin{align*}
+    f(x|y) &= \frac{f(x,y)}{\int_{-\infty}^\infty f(x,y)dx}
+    \\ &= \frac{15x^2y}{\int_0^y 15x^2y dx}
+    \\ &= \frac{15x^2y}{5x^3y \bigg|_{x=0}^y}
+    \\ &= \frac{15x^2y}{5y^4}
+    \\ &= \frac{3x^2}{y^3}
+\end{align*}
+
+\section{Properties of a joint PDF}
+Continuous random variables $X$ and $Y$ have the following PDF:
+\[ f(x,y) = f_{XY}(x,y) = \begin{cases}
+    kx^2y^3 & \text{ where }0<x,y<6
+    \\ 0 & \text{otherwise}
+\end{cases}\]
+\begin{enumerate}
+    \item Find $k$.
+
+    \textbf{Solution.}
+    \begin{align*}
+        1 &= \int_0^6 \int_0^6 kx^2y^3dxdy
+        \\ &= k \int_0^6 y^3 \left( \frac{1}{3}x^3\bigg|_{x=0}^6\right) dy
+        \\ &= k \frac{6^3}{3} \int_0^6 y^3 dy 
+        \\ &= k\frac{6^3}{3\cdot 4} \left( y^4 \bigg|_{y=0}^6 \right)
+        \\ \frac{12}{6^3 \cdot 6^4} &= k
+        \\ k&= \frac{1}{23,328}
+    \end{align*}
+
+    \item Find the marginal PDF of $X$, $f_X(x)$.
+
+    \textbf{Solution.}
+    \begin{align*}
+        f_X(x) &= \int_0^\infty f_{XY}(x,y) dy
+        \\ &= k\int_0^6 x^2y^3 dy
+        \\ &= \frac{k}{4} x^2 \left( y^4 \bigg|_0^6\right) 
+        \\ &= \frac{6^4 k}{4}x^2
+        \\ &= \frac{1}{72}x^2
+    \end{align*}
+
+    \item Find the marginal PDF of $Y$, $f_Y(y)$.
+
+    \textbf{Solution.}
+    \begin{align*}
+         f_Y(y) &= \int_0^\infty f_{XY}(x,y) dx
+        \\ &= k\int_0^6 x^2 y^3 dx
+        \\ &= \frac{k}{3} y^3 \left( x^3 \bigg|_0^6\right) 
+        \\ &= \frac{6^3 k}{3}y^3
+        \\ &= \frac{1}{324}y^3
+    \end{align*}
+
+    \item Find $E[X]$.
+
+    \begin{align*}
+        E[X] &= \int_{-\infty}^\infty\int_{-\infty}^\infty x f_{XY}(x,y)dxdy
+        \\ &= k\int_0^6 \int_0^6 x^3y^3 dxdy
+        \\ &= \frac{6^4 k}{4} \int_0^6 y^3 dy
+        \\ &= \frac{(6^4)^2}{4^2}k
+        \\ &= 4.5
+    \end{align*}
+
+    \item Find $E[Y]$.
+    
+    \textbf{Solution.}
+    \begin{align*}
+        E[Y] &= \int_{-\infty}^\infty\int_{-\infty}^\infty y f_{XY}(x,y)dxdy
+        \\ &= k\int_0^6 \int_0^6 x^2y^4 dxdy
+        \\ &= \frac{6^3 k}{3} \int_0^6 y^4 dy
+        \\ &= \frac{6^3 \cdot 6^5}{3\cdot 5}k
+        \\ &= 4.8
+    \end{align*}
+
+    \item Find $Var[X]$.
+
+    \textbf{Solution}.
+    \begin{align*}
+        Var[X] &= E[X^2]-E[X]^2
+        \\ &= \int_{-\infty}^\infty\int_{-\infty}^\infty x^2 f_{XY}(x,y)dxdy - (4.5)^2
+        \\ &= k \int_0^6 \int_0^6 x^4 y^3 dxdy - (4.5)^2
+        \\ &= \frac{6^5 k}{5} \int_0^6 y^3 dy - (4.5)^2
+        \\ &= \frac{6^5 \cdot 6^4 }{5 \cdot 4}k - (4.5)^2
+        \\ &= 1.35
+    \end{align*}
+
+    \item Find $Var[Y]$.
+
+    \textbf{Solution}.
+    \begin{align*}
+        Var[Y] &= E[Y^2]-E[Y]^2
+        \\ &= \int_{-\infty}^\infty\int_{-\infty}^\infty y^2 f_{XY}(x,y)dxdy - (4.8)^2
+        \\ &= k \int_0^6 \int_0^6 x^2 y^5 dxdy - (4.8)^2
+        \\ &= \frac{6^3 k}{3} \int_0^6 y^5 dy - (4.8)^2
+        \\ &= \frac{6^3 \cdot 6^6 }{3 \cdot 6}k - (4.8)^2
+        \\ &= 0.96
+    \end{align*}
+
+    \item Find $Cov(X,Y)$.
+
+    \textbf{Solution.}
+    First, we find $E[XY]$:
+    \begin{align*}
+        E[XY] &=  \int_{-\infty}^\infty\int_{-\infty}^\infty xy f_{XY}(x,y)dxdy 
+        \\ &= k\int_0^6\int_0^6 x^3y^4dxdy 
+        \\ &= \frac{6^4\cdot 6^5}{4\cdot 5}k
+        \\ &= 21.6.
+    \end{align*}
+    Now we may compute:
+    \begin{align*}
+        Cov(X,Y) &= E[(X - E[X])(Y-E[Y])]
+        \\ &= E[(X - 4.5)(Y-4.8)]
+        \\ &= E[XY] - 4.5E[Y] - 4.8 E[X] + 21.6
+        \\ &= (21.6)^2 - 4.5(4.8) - 4.8(4.5)
+        \\ &= 423.36.
+    \end{align*}
+
+    \item Are $X,Y$ independent? Explain 
+
+    \textbf{Solution.}
+    If $X,Y$ are independent, then it must be true that \[ f_{XY}(x,y) = f_X(x)f_Y(y).\] Testing this, we have
+    \begin{align*}
+        kx^2y^3&= \left(\frac{1}{72}x^2\right)\left( \frac{1}{324}y^3\right)
+        \\ k &= \left(\frac{1}{72}\right)\left( \frac{1}{324}\right)
+        \\ k&= \frac{1}{23,328}
+    \end{align*}
+    which is true. Therefore, $X,Y$ are independent. 
+
+    \item What is the PDF of $X$ conditional on $Y$, $f_{X|Y}(x|y)?$
+
+    \textbf{Solution}.
+    \begin{align*}
+        f_{X|Y}(x|y) &= \frac{f_{XY}(x,y)}{f_Y(x,y)}
+        \\ &= \frac{kx^2y^3}{ \frac{1}{324}y^3}
+        \\ &= \frac{1}{72}x^2
+    \end{align*}
+
+    \item What is the PDF of $Y$ conditional on $X$, $f_{Y|X}(y|x)?$
+
+    \textbf{Solution}.
+    \begin{align*}
+        f_{Y|X}(y|x) &= \frac{f_{XY}(x,y)}{f_X(x,y)}
+        \\ &= \frac{kx^2y^3}{ \frac{1}{72}x^2}
+        \\ &= \frac{1}{324}y^3
+    \end{align*}
+\end{enumerate}
+
+
+\section{Properties of joint random variables}
+
+Suppose the following 
+\begin{itemize}
+    \item $E[D]=10$
+    \item $E[F]=4$
+    \item $E[DF] = 8$
+    \item $Var(D)= 60$
+    \item $Var(F) = 60$
+\end{itemize}
+\begin{enumerate}
+    \item What is $Cov(D,F)?$
+
+    \textbf{Solution.}
+    \begin{align*}
+        Cov(D,F) &= E[(D-E[D])(F-E[F])]
+        \\ &= E[(D-10)(F-4)]
+        \\ &= E[DF] - 10E[F]- 4E[D]+14 
+        \\ &= -58
+    \end{align*}
+
+    \item What is the correlation between $D$ and $F$?
+
+    \textbf{Solution.}
+    \begin{align*}
+        Corr(D,F) &= \frac{Cov(D,F)}{\sqrt{Var(D)Var(F)}}
+        \\ &= \frac{-58}{\sqrt{(60)(60)}}
+        \\ &= -\frac{29}{30}
+    \end{align*}
+
+    \item Suppose you multiplied $F$ by 2 to generate a new variable $H$. What is $Cov(D,H)$
+
+    \textbf{Solution.}
+    \begin{align*}
+        Cov(D,H) &= E[(D-E[D])(2F-2E[F])]
+        \\ &= E[(D-10)(2)(F-4)]
+        \\ &= 2(E[DF] - 10E[F]- 4E[D]+14)
+        \\ &= -116
+        \\ &= 2Cov(D,F)
+    \end{align*}
+
+    \item What is $Corr(D,H)$? How does this compare to your answer in part (b) of this question
+
+    \textbf{Solution.} Since $Cov(D,H)=2Cov(D,F)$ and $Var(aX)=a^2Var(X)$ for any $a,X$, we have:
+    \begin{align*}
+        Corr(D,H) &= \frac{2Cov(D,F)}{\sqrt{Var(D)(4)Var(F)}}
+        \\ &= \frac{-58(2)}{\sqrt{(60)(4)(60)}}
+        \\ &= -\frac{29}{30}
+        \\ &= Corr(D,F)
+    \end{align*}
+
+    \item Suppose instead that $Var(D)=30$. How would this change $Corr(D,F)$?
+
+    \textbf{Solution.}
+    \begin{align*}
+        Corr(D,F) &= \frac{Cov(D,F)}{\sqrt{Var(D)Var(F)}}
+        \\ &= \frac{-58}{\sqrt{(30)(60)}}
+        \\ &= -\frac{29\sqrt{2}}{30}
+    \end{align*}
+    
+\end{enumerate}
+
+\section{Continuous Bayes' theorem}
+Prove the continuous Bayes' theorem.
+\[ f(\theta | X) = \frac{f(X|\theta) f(\theta)}{\int f(X|\theta) f(\theta)d\theta}\]
+
+\textbf{Solution.}
+
+\begin{align*}
+    f(\theta | X) &= \frac{f(\theta,X)}{f_X(x)} & \text{PDF of }\theta \text{ conditional on }X
+    \\ &= \frac{f(\theta,X)}{\int f(\theta,X)d\theta} & \text{Definition of conditional probability}
+    \\ &= \frac{f(X|\theta)f(\theta)}{\int f(X|\theta)f(\theta)d\theta} & f(x,y) = f(x|y)f(y)
+\end{align*}
+$\qed$
+
+\end{document}
